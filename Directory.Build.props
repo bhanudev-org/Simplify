@@ -1,0 +1,18 @@
+<Project>
+	<PropertyGroup>
+		<Deterministic>true</Deterministic>
+		<LangVersion>latest</LangVersion>
+		<Authors>Bhanu Prakash Korthiwada</Authors>
+		<Copyright>Copyright © Simplify</Copyright>
+		<Company>Simplify</Company>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageProjectUrl>https://github.com/BhanuKorthiwada/Simplify</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryType>git</RepositoryType>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<RepositoryUrl>https://github.com/BhanuKorthiwada/Simplify</RepositoryUrl>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageVersion>0.0.1-alpha1</PackageVersion>
+	</PropertyGroup>
+</Project>

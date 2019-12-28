@@ -1,0 +1,55 @@
+<Project>
+
+	<PropertyGroup>
+		<ExtensionsVersion>3.0.0-3.1.*</ExtensionsVersion>
+		<IdentityServerVersion>3.0.2-*</IdentityServerVersion>
+		<MongoDbVersion>2.*</MongoDbVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!--identity server -->
+		<PackageReference Update="IdentityServer4" Version="$(IdentityServerVersion)" />
+		<PackageReference Update="IdentityServer4.AspNetIdentity" Version="$(IdentityServerVersion)" />
+
+		<!--microsoft extensions -->
+		<PackageReference Update="Microsoft.Extensions.Logging" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Logging.Abstractions" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Configuration" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Options" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(ExtensionsVersion)" />
+		<PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(ExtensionsVersion)" />
+
+		<!--microsoft asp.net core -->
+		<PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
+
+		<!--misc-->
+		<PackageReference Update="Sendgrid" Version="9.12.0" />
+		<PackageReference Update="NodaTime" Version="2.*" />
+		<PackageReference Update="AutoMapper" Version="9.*" />
+		<PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.*" />
+		<PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
+
+		<!--mongodb-->
+		<PackageReference Update="MongoDB.Bson" Version="$(MongoDbVersion)" />
+		<PackageReference Update="MongoDB.Driver" Version="$(MongoDbVersion)" />
+		<PackageReference Update="MongoDB.Driver.Core" Version="$(MongoDbVersion)" />
+		<PackageReference Update="MongoDB.Driver.GridFS" Version="$(MongoDbVersion)" />
+
+		<!--code analysis-->
+		<PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.7" />
+		<PackageReference Update="StyleCop.Analyzers" Version="1.1.118" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="../../docs/icon.png" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<Target Name="SetAssemblyVersion" AfterTargets="MinVer">
+		<PropertyGroup>
+			<AssemblyVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).0</AssemblyVersion>
+		</PropertyGroup>
+	</Target>
+</Project>
