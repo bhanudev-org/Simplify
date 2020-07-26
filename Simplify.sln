@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Persistence.MongoD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.EventStore.MongoDb", "src\Simplify.EventStore.MongoDb\Simplify.EventStore.MongoDb.csproj", "{7907E241-480D-4548-BC62-78AB53356B77}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Web", "src\Simplify.Web\Simplify.Web.csproj", "{8DFFDA82-99EE-4AE7-9204-69719E1CE736}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{7907E241-480D-4548-BC62-78AB53356B77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7907E241-480D-4548-BC62-78AB53356B77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7907E241-480D-4548-BC62-78AB53356B77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +60,7 @@ Global
 		{759FC5CD-01A8-4F5E-88EB-CCF2665B9B8C} = {C51FFC26-3BD7-4C49-87A8-E8C76FA6CEAA}
 		{BEF0AA03-DEE2-4237-8214-2129327C32D1} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
 		{7907E241-480D-4548-BC62-78AB53356B77} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
+		{8DFFDA82-99EE-4AE7-9204-69719E1CE736} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7FC6679-7D6B-4BAA-9E78-F6D9EF754663}

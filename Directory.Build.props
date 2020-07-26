@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<Deterministic>true</Deterministic>
 		<LangVersion>latest</LangVersion>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
 		<Authors>Bhanu Prakash Korthiwada</Authors>
 		<Copyright>Copyright © Simplify</Copyright>
 		<Company>Simplify</Company>

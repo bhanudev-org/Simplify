@@ -1,9 +1,9 @@
 <Project>
 
 	<PropertyGroup>
-		<ExtensionsVersion>3.0.0-3.1.*</ExtensionsVersion>
-		<IdentityServerVersion>3.0.2-*</IdentityServerVersion>
-		<MongoDbVersion>2.*</MongoDbVersion>
+		<ExtensionsVersion>5.0.0-preview.*</ExtensionsVersion>
+		<IdentityServerVersion>4.0.2</IdentityServerVersion>
+		<MongoDbVersion>2.10.4</MongoDbVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -21,6 +21,12 @@
 		<PackageReference Update="Microsoft.Extensions.Options" Version="$(ExtensionsVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(ExtensionsVersion)" />
 		<PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(ExtensionsVersion)" />
+
+    <PackageReference Update="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Identity.UI" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="$(ExtensionsVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(ExtensionsVersion)" />
 
 		<!--microsoft asp.net core -->
 		<PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
