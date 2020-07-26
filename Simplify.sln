@@ -17,13 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{42
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Tests", "tests\Simplify.Tests\Simplify.Tests.csproj", "{759FC5CD-01A8-4F5E-88EB-CCF2665B9B8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Tests", "tests\Simplify.Tests\Simplify.Tests.csproj", "{759FC5CD-01A8-4F5E-88EB-CCF2665B9B8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Persistence.MongoDb", "src\Simplify.Persistence.MongoDb\Simplify.Persistence.MongoDb.csproj", "{BEF0AA03-DEE2-4237-8214-2129327C32D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Persistence.MongoDb", "src\Simplify.Persistence.MongoDb\Simplify.Persistence.MongoDb.csproj", "{BEF0AA03-DEE2-4237-8214-2129327C32D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.EventStore.MongoDb", "src\Simplify.EventStore.MongoDb\Simplify.EventStore.MongoDb.csproj", "{7907E241-480D-4548-BC62-78AB53356B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.EventStore.MongoDb", "src\Simplify.EventStore.MongoDb\Simplify.EventStore.MongoDb.csproj", "{7907E241-480D-4548-BC62-78AB53356B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Web", "src\Simplify.Web\Simplify.Web.csproj", "{8DFFDA82-99EE-4AE7-9204-69719E1CE736}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Web", "src\Simplify.Web\Simplify.Web.csproj", "{8DFFDA82-99EE-4AE7-9204-69719E1CE736}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Domain", "src\Simplify.Domain\Simplify.Domain.csproj", "{5D6D63E5-420A-4182-B0D4-90C846E552EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DFFDA82-99EE-4AE7-9204-69719E1CE736}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D6D63E5-420A-4182-B0D4-90C846E552EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D6D63E5-420A-4182-B0D4-90C846E552EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D6D63E5-420A-4182-B0D4-90C846E552EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D6D63E5-420A-4182-B0D4-90C846E552EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +67,7 @@ Global
 		{BEF0AA03-DEE2-4237-8214-2129327C32D1} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
 		{7907E241-480D-4548-BC62-78AB53356B77} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
 		{8DFFDA82-99EE-4AE7-9204-69719E1CE736} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
+		{5D6D63E5-420A-4182-B0D4-90C846E552EE} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7FC6679-7D6B-4BAA-9E78-F6D9EF754663}

@@ -1,5 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;netcoreapp5.0</TargetFrameworks>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Simplify.Persistence.MongoDb\Simplify.Persistence.MongoDb.csproj" />
   </ItemGroup>
