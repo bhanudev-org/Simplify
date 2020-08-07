@@ -287,3 +287,9 @@ dotnet_naming_style.prefix_with___and_camelcase.required_prefix = _
 dotnet_naming_style.prefix_with___and_camelcase.required_suffix =
 dotnet_naming_style.prefix_with___and_camelcase.word_separator =
 dotnet_naming_style.prefix_with___and_camelcase.capitalization = camel_case
+
+
+[*.cs]
+
+# Default severity for all analyzer diagnostics
+dotnet_analyzer_diagnostic.severity = silent

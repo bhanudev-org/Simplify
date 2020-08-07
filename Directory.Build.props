@@ -1,19 +1,42 @@
 <Project>
-	<PropertyGroup>
-		<Deterministic>true</Deterministic>
-		<LangVersion>latest</LangVersion>
+  <PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
     <TargetFramework>net5.0</TargetFramework>
-		<Authors>Bhanu Prakash Korthiwada</Authors>
-		<Copyright>Copyright © Simplify</Copyright>
-		<Company>Simplify</Company>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageProjectUrl>https://github.com/BhanuKorthiwada/Simplify</PackageProjectUrl>
-		<PackageIcon>icon.png</PackageIcon>
-		<RepositoryType>git</RepositoryType>
-		<NeutralLanguage>en-US</NeutralLanguage>
-		<RepositoryUrl>https://github.com/BhanuKorthiwada/Simplify</RepositoryUrl>
-		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageVersion>0.0.1-alpha1</PackageVersion>
-	</PropertyGroup>
+    <Deterministic>true</Deterministic>
+    <Nullable>enable</Nullable>
+    <Authors>Bhanu Prakash Korthiwada</Authors>
+    <Copyright>Copyright © Simplify</Copyright>
+    <Company>Simplify</Company>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/BhanuKorthiwada/Simplify</PackageProjectUrl>
+    <PackageIcon>icon.png</PackageIcon>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <RepositoryUrl>https://github.com/BhanuKorthiwada/Simplify</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+  </PropertyGroup>
+
+  <!--MinVer-->
+  <PropertyGroup>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+    <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
+    <MinVerVerbosity>normal</MinVerVerbosity>
+    <MinVerMinimumMajorMinor>1.0</MinVerMinimumMajorMinor>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../docs/icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(IsPackable) == 'true'">
+    <PackageReference Include="MinVer" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" />
+  </ItemGroup>
 </Project>
