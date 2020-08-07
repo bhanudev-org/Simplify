@@ -19,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{42
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Tests", "tests\Simplify.Tests\Simplify.Tests.csproj", "{759FC5CD-01A8-4F5E-88EB-CCF2665B9B8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Persistence.MongoDB", "src\Simplify.Persistence.MongoDb\Simplify.Persistence.MongoDB.csproj", "{BEF0AA03-DEE2-4237-8214-2129327C32D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Persistence.MongoDB", "src\Simplify.Persistence.MongoDB\Simplify.Persistence.MongoDB.csproj", "{BEF0AA03-DEE2-4237-8214-2129327C32D1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.EventStore.MongoDB", "src\Simplify.EventStore.MongoDb\Simplify.EventStore.MongoDB.csproj", "{7907E241-480D-4548-BC62-78AB53356B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.EventStore.MongoDB", "src\Simplify.EventStore.MongoDB\Simplify.EventStore.MongoDB.csproj", "{7907E241-480D-4548-BC62-78AB53356B77}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Web", "src\Simplify.Web\Simplify.Web.csproj", "{8DFFDA82-99EE-4AE7-9204-69719E1CE736}"
 EndProject
