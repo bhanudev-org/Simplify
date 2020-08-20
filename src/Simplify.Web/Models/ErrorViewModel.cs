@@ -1,5 +1,3 @@
-using System;
-
 #nullable disable
 
 namespace Simplify.Web.Models

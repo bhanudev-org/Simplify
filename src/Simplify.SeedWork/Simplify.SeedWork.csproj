@@ -7,7 +7,7 @@
   <ItemGroup Label="Vendor">
     <PackageReference Include="MassTransit" />
     <PackageReference Include="NodaTime" />
-    <PackageReference Include="CSharpFunctionalExtensions" Version="2.11.4" />
+    <PackageReference Include="CSharpFunctionalExtensions" />
   </ItemGroup>
 
   <ItemGroup Label="MS">    

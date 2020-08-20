@@ -3,7 +3,7 @@
     <ExtensionsVersion>5.0.0-preview.*</ExtensionsVersion>
     <IdentityServerVersion>4.0.4</IdentityServerVersion>
     <MongoDbVersion>2.11.0</MongoDbVersion>
-    <MassTransitVersion>7.0.2</MassTransitVersion>
+    <MassTransitVersion>7.0.3</MassTransitVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -37,6 +37,7 @@
     <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
     <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.11.5" />
 
     <PackageReference Update="MediatR" Version="8.1.0" />
     <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
@@ -52,7 +53,7 @@
     <PackageReference Update="MongoDB.Driver.GridFS" Version="$(MongoDbVersion)" />
 
     <!--code analysis-->
-    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.0.0" PrivateAssets="All" />
+    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0" PrivateAssets="All" />
     <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
 
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
