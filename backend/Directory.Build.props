@@ -28,12 +28,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../.editorconfig" Link=".editorconfig" />
+    <None Include="../../../.editorconfig" Link=".editorconfig" />
+    <None Include="../../../../docs/icon.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="../../docs/icon.png" Pack="true" Visible="false" PackagePath="" />
-  </ItemGroup>
+  <!--<ItemGroup>
+    <PackageReference Include="Microsoft.DependencyValidation.Analyzers" />
+  </ItemGroup>-->
 
   <ItemGroup Condition="$(IsPackable) == 'true'">
     <PackageReference Include="MinVer" />

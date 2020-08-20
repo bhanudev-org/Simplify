@@ -8,4 +8,8 @@
     <PackageReference Include="MongoDB.Driver.GridFS" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Foundation\Simplify.SeedWork\Simplify.SeedWork.csproj" />
+  </ItemGroup>
+
 </Project>

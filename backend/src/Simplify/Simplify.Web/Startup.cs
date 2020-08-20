@@ -1,10 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Net.Http.Headers;
 using Serilog;
 using Simplify.Infrastructure;
 using Simplify.SeedWork;
@@ -21,6 +25,25 @@ namespace Simplify.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<RouteOptions>(options =>
+            {
+                options.AppendTrailingSlash = false;
+                options.LowercaseUrls = true;
+                options.SuppressCheckForUnhandledSecurityMetadata = false;
+            });
+
+            services.Configure<StaticFileOptions>(options =>
+            {
+                options.HttpsCompression = HttpsCompressionMode.Compress;
+                options.OnPrepareResponse = ctx =>
+                {
+                    // using Microsoft.AspNetCore.Http;
+                    ctx.Context.Response.Headers.Append(HeaderNames.CacheControl, "public, max-age=315360");
+                };
+            });
+
+            services.AddResponseCompression();
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -51,6 +74,7 @@ namespace Simplify.Web
 
             app.UseSerilogRequestLogging();
             app.UseHttpsRedirection();
+            app.UseResponseCompression();
             app.UseStaticFiles();
 
             app.UseRouting();
