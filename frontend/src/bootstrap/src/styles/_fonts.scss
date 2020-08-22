@@ -1,0 +1,20 @@
+@font-face {
+  font-family: system;
+  font-style: normal;
+  src: local('Segoe UI'), local('.SFNSText'), local('.HelveticaNeueDeskInterface'), local('.LucidaGrandeUI'), local('Ubuntu'), local('Roboto'), local('DroidSans'), local('Tahoma');
+}
+
+@font-face {
+  font-family: 'system-code';
+  font-style: normal;
+  src: local('.SFMono-Regular'), local('Menlo'), local('Monaco'), local('Consolas'), local('Liberation Mono'), local('Courier New'), local('monospace');
+}
+
+$font-family-heading: system;
+$headings-font-family: system;
+$font-family-sans-serif: 'system'; // 'Segoe UI', 'Source Sans Pro', Calibri, Candara, Arial, sans-serif;
+$font-family-monospace: 'system-code';
+
+$font-family-base: $font-family-sans-serif;
+$font-size-base: 0.9375rem;
+$headings-font-weight: 500; // 300

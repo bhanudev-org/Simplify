@@ -1,3 +1,4 @@
+using System;
 using NodaTime;
 
 namespace Simplify.SeedWork.Entities
@@ -5,7 +6,7 @@ namespace Simplify.SeedWork.Entities
     public interface IEntityWithSoftDelete
     {
         bool IsDeleted { get; }
-        string? DeletedBy { get; }
+        Guid? DeletedById { get; }
         Instant? DeletedOn { get; }
     }
 }

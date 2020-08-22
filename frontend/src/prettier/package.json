@@ -1,0 +1,10 @@
+{
+  "name": "@simplify/prettier",
+  "version": "1.0.0",
+  "description": "Simplify Prettier",
+  "author": "Bhanu Prakash Korthiwada",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^2.0.5"
+  }
+}

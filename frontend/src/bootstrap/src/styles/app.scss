@@ -1,0 +1,17 @@
+@import './colors';
+@import './fonts';
+@import './styles';
+
+// Bootstrap
+$enable-rounded: false;
+
+// Navbar
+$navbar-dark-hover-color: rgba($white, 1);
+$navbar-light-hover-color: rgba($black, 0.9);
+
+// Alerts
+$alert-border-width: 0;
+
+// Progress bars
+$progress-height: 0.5rem;
+@import '~bootstrap/scss/bootstrap';

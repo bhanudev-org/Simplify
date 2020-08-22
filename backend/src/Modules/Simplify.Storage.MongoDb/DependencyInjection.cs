@@ -11,6 +11,8 @@ namespace Simplify.Storage.MongoDb
         {
             builder.Services.Configure(options);
             builder.Services.TryAddSingleton<IMongoDbContext, MongoDbContext>();
+
+            Initializer.Initialize();
             return builder;
         }
 
@@ -18,6 +20,8 @@ namespace Simplify.Storage.MongoDb
         {
             builder.Services.Configure<MongoDbContextOptions>(builder.Configuration.GetSection(sectionName));
             builder.Services.TryAddSingleton<IMongoDbContext, MongoDbContext>();
+
+            Initializer.Initialize();
             return builder;
         }
     }

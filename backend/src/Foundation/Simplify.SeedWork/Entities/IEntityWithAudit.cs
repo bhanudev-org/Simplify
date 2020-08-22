@@ -1,12 +1,13 @@
+using System;
 using NodaTime;
 
 namespace Simplify.SeedWork.Entities
 {
     public interface IEntityWithAudit
     {
-        string CreatedBy { get; }
+        Guid CreatedById { get; }
         Instant CreatedOn { get; }
-        string LastModifiedBy { get; }
+        Guid LastModifiedById { get; }
         Instant LastModifiedOn { get; }
     }
 }
