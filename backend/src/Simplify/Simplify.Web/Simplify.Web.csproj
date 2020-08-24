@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net5.0</TargetFrameworks>
     <UserSecretsId>aspnet-Simplify.Web-1F592EF3-A49C-4199-A2F6-F32C5EEDA870</UserSecretsId>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
@@ -16,10 +16,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" />
-    <PackageReference Include="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
-    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="WebMarkupMin.AspNetCore3" Version="2.8.9" />
   </ItemGroup>
 
   <ItemGroup>

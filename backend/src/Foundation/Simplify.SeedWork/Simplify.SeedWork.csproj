@@ -1,11 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
-  </PropertyGroup>
-
   <ItemGroup Label="Vendor">
     <PackageReference Include="MassTransit" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" />
     <PackageReference Include="NodaTime" />
     <PackageReference Include="CSharpFunctionalExtensions" />
   </ItemGroup>

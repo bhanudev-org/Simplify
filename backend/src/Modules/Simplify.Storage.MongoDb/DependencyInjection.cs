@@ -7,7 +7,7 @@ namespace Simplify.Storage.MongoDb
 {
     public static class DependencyInjection
     {
-        public static ISimplifyBuilder AddMongo(this ISimplifyBuilder builder, Action<MongoDbContextOptions> options)
+        public static ISimplifyBuilder AddMongoDb(this ISimplifyBuilder builder, Action<MongoDbContextOptions> options)
         {
             builder.Services.Configure(options);
             builder.Services.TryAddSingleton<IMongoDbContext, MongoDbContext>();
@@ -16,7 +16,7 @@ namespace Simplify.Storage.MongoDb
             return builder;
         }
 
-        public static ISimplifyBuilder AddMongo(this ISimplifyBuilder builder, string sectionName = "storage:mongodb")
+        public static ISimplifyBuilder AddMongoDb(this ISimplifyBuilder builder, string sectionName = "storage:mongodb")
         {
             builder.Services.Configure<MongoDbContextOptions>(builder.Configuration.GetSection(sectionName));
             builder.Services.TryAddSingleton<IMongoDbContext, MongoDbContext>();

@@ -25,13 +25,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Domain", "src\Simp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.SeedWork", "src\Foundation\Simplify.SeedWork\Simplify.SeedWork.csproj", "{046DD5B7-89D9-4637-9F3E-C8B4B827BA00}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Infrastructure", "src\Simplify\\Simplify.Infrastructure\Simplify.Infrastructure.csproj", "{8FDB7041-6989-46CB-B7A3-FC58D9BAADE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Infrastructure", "src\Simplify\Simplify.Infrastructure\Simplify.Infrastructure.csproj", "{8FDB7041-6989-46CB-B7A3-FC58D9BAADE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Foundation", "Foundation", "{232D287A-E3ED-4658-815B-1A30F8F85962}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{21986EDF-D395-4433-AE1B-D7E1F46A019A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Storage.MongoDb", "src\Modules\Simplify.Storage.MongoDb\Simplify.Storage.MongoDb.csproj", "{2CF0CE9B-6F14-4277-8247-D2DD6D0D66A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Storage.MongoDb", "src\Modules\Simplify.Storage.MongoDb\Simplify.Storage.MongoDb.csproj", "{2CF0CE9B-6F14-4277-8247-D2DD6D0D66A1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simplify", "Simplify", "{B02AF9F2-4900-4286-A354-646BE27166D6}"
 EndProject

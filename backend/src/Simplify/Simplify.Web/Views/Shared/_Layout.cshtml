@@ -4,46 +4,58 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Simplify</title>
-    <link rel="stylesheet" href="~/vendor/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/assets/bundle.css" asp-append-version="true"/>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Simplify</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Simplify</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" id="navbarSupportedContent">
+                <partial name="_LoginPartial" />
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index" active-url="/">Home</a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Privacy" active-url="/privacy">Privacy</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="container mt-5">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="py-3">
         <div class="container">
-            &copy; 2020 - Simplify - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="d-flex justify-content-between align-items-center flex-column flex-md-row border-bottom pb-2">
+                <h5 class="ml-0 ml-md-3 mb-0"><a asp-controller="Home" asp-action="Index">Simplify</a></h5>
+                <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" asp-page="/Features">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Privacy">Privacy</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-page="/Contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-center align-items-center justify-content-md-between flex-column flex-md-row mx-3 mt-3">
+                <div class="d-flex">
+                <a href="#"><icon class="mr-3" name="twitter" /></a>
+                <a href="#"><icon class="mr-3" name="facebook" /></a>
+                <a href="#"><icon name="github" /></div>
+                <div class="d-flex mt-3 mt-md-0">
+                    <p class="mb-0 small text-muted">© 2020 Simplify. All right reserved.</p>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="~/vendor/js/jquery.min.js"></script>
-    <script src="~/vendor/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/assets/bundle.js" async defer asp-append-version="true"></script>
+    <!--
     @await RenderSectionAsync("Scripts", required: false)
+    -->
 </body>
 </html>

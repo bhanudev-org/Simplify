@@ -1,8 +1,12 @@
+using System.IO.Compression;
+using System.Linq;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,7 +16,10 @@ using Microsoft.Net.Http.Headers;
 using Serilog;
 using Simplify.Infrastructure;
 using Simplify.SeedWork;
+using Simplify.Storage.MongoDb;
 using Simplify.Web.Data;
+using WebMarkupMin.AspNetCore3;
+using WebMarkupMin.Core;
 
 namespace Simplify.Web
 {
@@ -37,12 +44,36 @@ namespace Simplify.Web
                 options.HttpsCompression = HttpsCompressionMode.Compress;
                 options.OnPrepareResponse = ctx =>
                 {
-                    // using Microsoft.AspNetCore.Http;
                     ctx.Context.Response.Headers.Append(HeaderNames.CacheControl, "public, max-age=315360");
                 };
             });
 
-            services.AddResponseCompression();
+            services.Configure<CookieTempDataProviderOptions>(options => options.Cookie.Name = ".sy.temp");
+            services.Configure<GzipCompressionProviderOptions>(options => { options.Level = CompressionLevel.Optimal; });
+            services.Configure<BrotliCompressionProviderOptions>(options => { options.Level = CompressionLevel.Optimal; });
+
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<BrotliCompressionProvider>();
+                options.Providers.Add<GzipCompressionProvider>();
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/xhtml+xml", "application/atom+xml", "image/svg+xml" });
+            });
+
+            services.AddWebMarkupMin(options =>
+            {
+                options.AllowCompressionInDevelopmentEnvironment = true;
+                options.AllowMinificationInDevelopmentEnvironment = true;
+                options.DisablePoweredByHttpHeaders = true;
+            })
+                .AddHtmlMinification(options =>
+                {
+                    var settings = options.MinificationSettings;
+                    settings.RemoveRedundantAttributes = true;
+                    settings.WhitespaceMinificationMode = WhitespaceMinificationMode.Aggressive;
+                    settings.RemoveHtmlComments = true;
+                    settings.RemoveHtmlCommentsFromScriptsAndStyles = true;
+                })
+                .AddHttpCompression();
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -51,7 +82,8 @@ namespace Simplify.Web
 
 
             services.AddSimplify(Configuration)
-                .AddCommands(SimplifyWebHelper.Assembly);
+                .AddCommands(SimplifyWebHelper.Assembly)
+                .AddMongoDb();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
