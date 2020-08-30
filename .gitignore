@@ -264,3 +264,9 @@ __pycache__/
 *.jsonlog
 
 dist/
+
+# Private App settings
+appsettings.private.json
+
+# App DB
+app.db

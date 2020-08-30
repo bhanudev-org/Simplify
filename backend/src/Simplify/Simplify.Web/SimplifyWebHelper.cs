@@ -14,11 +14,9 @@ namespace Simplify.Web
         public static string CreateMD5(string input)
         {
             Guard.NotNull(input);
-            using(var md5 = MD5.Create())
-            {
-                var result = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
-                return BitConverter.ToString(result).Replace("-", "").ToLower();
-            }
+            using var md5 = MD5.Create();
+            var result = md5.ComputeHash(Encoding.ASCII.GetBytes(input));
+            return BitConverter.ToString(result).Replace("-", "").ToLower();
         }
 
         public static string GetDescription(this Enum value)
@@ -34,6 +32,7 @@ namespace Simplify.Web
                     return attr?.Description ?? string.Empty;
                 }
             }
+
             return string.Empty;
         }
     }

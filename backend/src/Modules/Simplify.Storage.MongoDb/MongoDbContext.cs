@@ -6,7 +6,7 @@ namespace Simplify.Storage.MongoDb
 {
     public class MongoDbContext : IMongoDbContext
     {
-        public MongoDbContext(IOptions<MongoDbContextOptions> options)
+        public MongoDbContext(IOptions<MongoDbOptions> options)
         {
             var optionsValue = options.Value;
 

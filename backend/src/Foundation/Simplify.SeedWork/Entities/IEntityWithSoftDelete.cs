@@ -5,8 +5,8 @@ namespace Simplify.SeedWork.Entities
 {
     public interface IEntityWithSoftDelete
     {
-        bool IsDeleted { get; }
-        Guid? DeletedById { get; }
-        Instant? DeletedOn { get; }
+        bool IsDeleted { get; set; }
+        Guid? DeletedById { get; set; }
+        Instant? DeletedOn { get; set; }
     }
 }

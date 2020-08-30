@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using NodaTime;
+using Simplify.SeedWork.Entities;
 using Simplify.SeedWork.Events;
 
 namespace Simplify.SeedWork.Domain
@@ -12,7 +14,7 @@ namespace Simplify.SeedWork.Domain
 
         protected AggregateRoot(Guid id) : this() => Id = id;
 
-        public Guid Id { get; }
+        public Guid Id { get; private set; }
 
         public void AddDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);
         public void ClearDomainEvents() => _domainEvents.Clear();
@@ -51,5 +53,35 @@ namespace Simplify.SeedWork.Domain
         public static bool operator !=(AggregateRoot a, AggregateRoot b) => !(a == b);
         public override int GetHashCode() => (GetType().ToString() + Id).GetHashCode();
         public override string ToString() => $"[{GetType().Name} {Id}]";
+
+        public void Created(Guid userId)
+        {
+            if(!(this is IEntityWithAudit entity)) return;
+            entity.CreatedOn = SystemClock.Instance.GetCurrentInstant();
+            entity.CreatedById = userId;
+        }
+
+        public void Updated(Guid userId)
+        {
+            if(!(this is IEntityWithAudit entity)) return;
+            entity.LastModifiedOn = SystemClock.Instance.GetCurrentInstant();
+            entity.LastModifiedById = userId;
+        }
+
+        public void Deleted(Guid userId)
+        {
+            if(!(this is IEntityWithSoftDelete entity)) return;
+            entity.DeletedById = userId;
+            entity.DeletedOn = SystemClock.Instance.GetCurrentInstant();
+            entity.IsDeleted = true;
+        }
+
+        public void UndoDelete()
+        {
+            if(!(this is IEntityWithSoftDelete entity)) return;
+            entity.DeletedById = default;
+            entity.DeletedOn = default;
+            entity.IsDeleted = false;
+        }
     }
 }
