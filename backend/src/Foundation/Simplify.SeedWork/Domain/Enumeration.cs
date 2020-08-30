@@ -31,16 +31,6 @@ namespace Simplify.SeedWork.Domain
         /// <summary>
         ///     Creates instance of type <see cref="Enumeration" />.
         /// </summary>
-        /// <remarks>
-        ///     This constructor should not be called from the derived class.
-        ///     It is helpful in doing JSON Serialization or mapping through Automapper.
-        /// </remarks>
-        [ExcludeFromCodeCoverage]
-        protected Enumeration() { }
-
-        /// <summary>
-        ///     Creates instance of type <see cref="Enumeration" />.
-        /// </summary>
         /// <param name="value">The Enumeration value.</param>
         /// <param name="name">The Enumeration name.</param>
         protected Enumeration(int value, string name)

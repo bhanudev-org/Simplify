@@ -6,7 +6,9 @@ namespace Simplify.Web.App.Commands
 {
     public class TestCommandHandler : ICommandHandler<OrderCommand>
     {
-        public async Task Consume(ConsumeContext<OrderCommand> context) =>
-            await context.RespondAsync<OrderResponse>(new {context.Message.Id, Note = "Hello"});
+        public async Task Consume(ConsumeContext<OrderCommand> context)
+        {
+            await context.RespondAsync<OrderResponse>(new { context.Message.Id, Note = "Hello" });
+        }
     }
 }

@@ -1,7 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <ItemGroup>
-    <ProjectReference Include="..\..\Foundation\Simplify.SeedWork\Simplify.SeedWork.csproj" />
+    <ProjectReference Include="..\Simplify.Core\Simplify.Core.csproj" />
   </ItemGroup>
-
 </Project>

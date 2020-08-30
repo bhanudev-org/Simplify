@@ -10,7 +10,6 @@ namespace Simplify.Storage.MongoDb
     public class SampleAggregate : AggregateRoot, IEntityWithAudit, IEntityWithSoftDelete, IEntityWithTags, IEntityWithVersion
     {
         [BsonId]
-        [BsonElement("_id")]
         public new Guid Id { get; set; }
 
         [BsonIgnoreIfDefault]
@@ -45,7 +44,7 @@ namespace Simplify.Storage.MongoDb
 
         [BsonIgnoreIfDefault]
         [BsonElement("tgs")]
-        public HashSet<string> Tags { get; set; }
+        public HashSet<string> Tags { get; set; } = null!;
 
 
         [BsonIgnoreIfDefault]

@@ -3,13 +3,15 @@ using MongoDB.Driver;
 
 namespace Simplify.Storage.MongoDb
 {
-    public class MongoDbContextOptions
+    public class MongoDbOptions
     {
-        public MongoDbContextOptions()
+        public const string MongoDb = "Storage:MongoDB";
+
+        public MongoDbOptions()
         {
             SeedingEnabled = false;
-            ConnectionString = string.Empty;
-            DatabaseName = string.Empty;
+            ConnectionString = "mongodb://localhost:27017/SimplifyDefault";
+            DatabaseName = "SimplifyDefault";
             DatabaseSettings = default;
         }
 
@@ -21,7 +23,6 @@ namespace Simplify.Storage.MongoDb
 
         [StringLength(20, ErrorMessage = "Too long database name.")]
         public string DatabaseName { get; set; }
-
 
         public MongoDatabaseSettings? DatabaseSettings { get; set; }
     }

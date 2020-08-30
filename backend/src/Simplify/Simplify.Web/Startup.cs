@@ -82,8 +82,9 @@ namespace Simplify.Web
 
 
             services.AddSimplify(Configuration)
-                .AddCommands(SimplifyWebHelper.Assembly)
-                .AddMongoDb();
+                .AddCommands(SimplifyWebHelper.Assembly,SimplifyInfraHelper.Assembly)
+                .AddMongoDB()
+                .AddSimplifyInfra();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
