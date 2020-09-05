@@ -267,6 +267,7 @@ dist/
 
 # Private App settings
 appsettings.private.json
+.private/
 
 # App DB
 app.db

@@ -3,7 +3,7 @@ using Simplify.SeedWork.Storage;
 
 namespace Simplify.Infrastructure.Storage
 {
-    public interface IArticleRepository : ICommandStorage<Article>, IQueryStorage<Article>
+    public interface IArticleRepository : ICommandStore<Article>, IQueryStore<Article>
     {
 
     }

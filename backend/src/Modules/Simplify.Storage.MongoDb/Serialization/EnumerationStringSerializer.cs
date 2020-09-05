@@ -4,12 +4,12 @@ using Simplify.SeedWork.Domain;
 
 namespace Simplify.Storage.MongoDb.Serialization
 {
-    public class EnumerationSerializer<TEnumeration> : SerializerBase<TEnumeration> where TEnumeration : Enumeration
+    public class EnumerationStringSerializer<TEnumeration> : SerializerBase<TEnumeration> where TEnumeration : Enumeration
     {
         public override TEnumeration Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args) =>
-            Enumeration.FromValue<TEnumeration>(context.Reader.ReadInt32());
+            Enumeration.FromName<TEnumeration>(context.Reader.ReadString());
 
         public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, TEnumeration value) =>
-            context.Writer.WriteInt32(value.Value);
+            context.Writer.WriteString(value.Name);
     }
 }

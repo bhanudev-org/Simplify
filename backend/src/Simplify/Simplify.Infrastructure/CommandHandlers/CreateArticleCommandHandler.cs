@@ -13,8 +13,8 @@ namespace Simplify.Infrastructure.CommandHandlers
 {
     public class CreateArticleCommandHandler : ICommandHandler<CreateArticleCommand>
     {
-        private readonly ILogger<CreateArticleCommandHandler> _logger;
         private readonly IArticleRepository _articleRepository;
+        private readonly ILogger<CreateArticleCommandHandler> _logger;
 
         public CreateArticleCommandHandler(IArticleRepository articleRepository, ILogger<CreateArticleCommandHandler> logger)
         {
@@ -36,19 +36,17 @@ namespace Simplify.Infrastructure.CommandHandlers
                 {
                     var stored = await _articleRepository.CreateAsync(article.Value);
 
-                    await context.RespondAsync<ArticleCreatedResponse>(new { stored.Id, Success = stored.IsAdded });
+                    await context.RespondAsync<ArticleCreatedResponse>(new {stored.Id, Success = stored.IsAdded});
                 }
                 else
                 {
-                    await context.RespondAsync<ArticleCreatedResponse>(new { Id = Guid.Empty, Success = false, Message = article.Error });
+                    await context.RespondAsync<ArticleCreatedResponse>(new {Id = Guid.Empty, Success = false, Message = article.Error});
                 }
             }
             else
             {
-                await context.RespondAsync<ArticleCreatedResponse>(new { Id = Guid.Empty, Success = false, Message = content.Error });
+                await context.RespondAsync<ArticleCreatedResponse>(new {Id = Guid.Empty, Success = false, Message = content.Error});
             }
-
-            
         }
     }
 }

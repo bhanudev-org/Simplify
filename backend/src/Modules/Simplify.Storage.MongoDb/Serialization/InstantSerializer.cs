@@ -9,10 +9,8 @@ namespace Simplify.Storage.MongoDb.Serialization
 {
     public class InstantSerializer : SerializerBase<Instant>
     {
-        public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, Instant value)
-        {
+        public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, Instant value) =>
             context.Writer.WriteDateTime(value.ToUnixTimeMilliseconds());
-        }
 
         public override Instant Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
         {

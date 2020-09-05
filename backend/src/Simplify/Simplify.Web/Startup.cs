@@ -32,6 +32,8 @@ namespace Simplify.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Generic Options
+
             services.Configure<RouteOptions>(options =>
             {
                 options.AppendTrailingSlash = false;
@@ -56,15 +58,15 @@ namespace Simplify.Web
             {
                 options.Providers.Add<BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
-                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/xhtml+xml", "application/atom+xml", "image/svg+xml" });
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] {"application/xhtml+xml", "application/atom+xml", "image/svg+xml"});
             });
 
             services.AddWebMarkupMin(options =>
-            {
-                options.AllowCompressionInDevelopmentEnvironment = true;
-                options.AllowMinificationInDevelopmentEnvironment = true;
-                options.DisablePoweredByHttpHeaders = true;
-            })
+                {
+                    options.AllowCompressionInDevelopmentEnvironment = true;
+                    options.AllowMinificationInDevelopmentEnvironment = true;
+                    options.DisablePoweredByHttpHeaders = true;
+                })
                 .AddHtmlMinification(options =>
                 {
                     var settings = options.MinificationSettings;
@@ -75,16 +77,17 @@ namespace Simplify.Web
                 })
                 .AddHttpCompression();
 
+            #endregion
+
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-
             services.AddSimplify(Configuration)
-                .AddCommands(SimplifyWebHelper.Assembly,SimplifyInfraHelper.Assembly)
+                .AddCommands(SimplifyWebHelper.Assembly, SimplifyInfraHelper.Assembly)
                 .AddMongoDB()
-                .AddSimplifyInfra();
+                .AddInfra();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -101,12 +104,11 @@ namespace Simplify.Web
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHttpsRedirection();
                 app.UseHsts();
             }
 
             app.UseSerilogRequestLogging();
-            app.UseHttpsRedirection();
             app.UseResponseCompression();
             app.UseStaticFiles();
 

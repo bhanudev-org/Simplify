@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using Simplify.SeedWork.Domain;
 
 namespace Simplify.SeedWork.Storage
 {
-    public interface IQueryStorage<TAggregate> where TAggregate : class, IAggregateRoot
+    public interface IQueryStore<TAggregate> where TAggregate : class, IAggregateRoot
     {
         Task<IReadOnlyCollection<TAggregate>> GetAsync(CancellationToken ct = default);
 

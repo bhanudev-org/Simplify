@@ -5,7 +5,7 @@ using Simplify.SeedWork.Domain;
 
 namespace Simplify.SeedWork.Storage
 {
-    public interface ICommandStorage<in TAggregate> where TAggregate : class, IAggregateRoot
+    public interface ICommandStore<in TAggregate> where TAggregate : class, IAggregateRoot
     {
         /// <summary>
         ///     Try to add the Aggregate to the store.

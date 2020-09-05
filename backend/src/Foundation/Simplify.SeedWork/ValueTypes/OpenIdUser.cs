@@ -14,7 +14,7 @@ namespace Simplify.SeedWork
         public string UniqueId { get; }
         public Email EmailId { get; }
 
-        protected override IEnumerable<object> GetEqualityComponents()
+        protected override IEnumerable<object?> GetEqualityComponents()
         {
             yield return UniqueId;
             yield return EmailId;

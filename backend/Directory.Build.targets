@@ -40,7 +40,7 @@
     <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
     <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Update="CSharpFunctionalExtensions" Version="2.11.6" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.11.*" />
 
     <PackageReference Update="MediatR" Version="8.1.0" />
     <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
