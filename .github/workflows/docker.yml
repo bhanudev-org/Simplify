@@ -32,7 +32,9 @@ jobs:
                     docker-compose --file docker-compose.test.yml run sut
                   else
                     cd backend
-                    docker build . --file ./src/Simplify/Simplify.Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$GITHUB_RUN_NUMBER.$GITHUB_RUN_ID
+                    VERSION=$GITHUB_RUN_NUMBER.$GITHUB_RUN_ID.$(date +%y.%m.%d)
+                    echo $VERSION
+                    docker build . --file ./src/Simplify/Simplify.Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$VERSION
                   fi
 
     # Push image to GitHub Packages.
