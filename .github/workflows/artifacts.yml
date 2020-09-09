@@ -1,4 +1,4 @@
-name: Build - Artifacts
+name: NuGet
 
 on: [push]
 
@@ -24,11 +24,12 @@ jobs:
 
             - name: Build with dotnet
               run: |
-                  mkdir artifacts
                   cd backend
-                  dotnet build --configuration Release                  
-                  find . -name '*.nupkg' -exec cp {} ../artifacts \;
-                  cd ..
+                  dotnet build --configuration Release
+                  mkdir artifacts
+                  find . -name '*.nupkg' -exec cp {} ./artifacts \;
+                  dotnet nuget add source https://nuget.pkg.github.com/BhanuKorthiwada/index.json -n github -u BhanuKorthiwada -p ${{ secrets.GH_TOKEN }} --store-password-in-clear-text
+                  dotnet nuget push ./artifacts/*.nupkg --source "github"
 
             - uses: actions/upload-artifact@v2
               with:
