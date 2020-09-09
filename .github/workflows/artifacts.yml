@@ -24,11 +24,13 @@ jobs:
 
             - name: Build with dotnet
               run: |
-                  mkdir artifacts
                   cd backend
-                  dotnet build --configuration Release                  
-                  find . -name '*.nupkg' -exec cp {} ../artifacts \;
-                  cd ..
+                  dotnet build --configuration Release
+                  mkdir artifacts
+                  find . -name '*.nupkg' -exec cp {} ./artifacts \;
+                  nuget source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/phanatic/octokit/index.json" -UserName phanatic
+                  dotnet nuget add source https://nuget.pkg.github.com/BhanuKorthiwada/index.json -n github -u BhanuKorthiwada -p GH_TOKEN
+                  dotnet nuget push "./artifacts/*.nupkg" --source "github"
 
             - uses: actions/upload-artifact@v2
               with:
