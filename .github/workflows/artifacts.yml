@@ -27,7 +27,7 @@ jobs:
                   mkdir artifacts
                   cd backend
                   dotnet build --configuration Release                  
-                  cp **/*.nupkgs ../artifacts
+                  cp **/*.nupkg ../artifacts
                   cd ..
 
             - uses: actions/upload-artifact@v2
