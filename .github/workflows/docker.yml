@@ -32,7 +32,7 @@ jobs:
                     docker-compose --file docker-compose.test.yml run sut
                   else
                     cd backend
-                    VERSION=$(date +%y.%m%d).$GITHUB_RUN_NUMBER.$GITHUB_RUN_ID
+                    VERSION=$(date +%y.%m.%d).$GITHUB_RUN_NUMBER
                     echo $VERSION
                     docker build . --file ./src/Simplify/Simplify.Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$VERSION
                   fi
