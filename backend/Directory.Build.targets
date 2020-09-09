@@ -3,7 +3,7 @@
     <ExtensionsVersion>5.0.0-preview.*</ExtensionsVersion>
     <IdentityServerVersion>4.0.4</IdentityServerVersion>
     <MongoDbVersion>2.11.1</MongoDbVersion>
-    <MassTransitVersion>7.0.3</MassTransitVersion>
+    <MassTransitVersion>7.0.*</MassTransitVersion>
   </PropertyGroup>
 
   <ItemGroup>
