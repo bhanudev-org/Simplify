@@ -28,9 +28,8 @@ jobs:
                   dotnet build --configuration Release
                   mkdir artifacts
                   find . -name '*.nupkg' -exec cp {} ./artifacts \;
-                  nuget source Add -Name "GitHub" -Source "https://nuget.pkg.github.com/phanatic/octokit/index.json" -UserName phanatic
-                  dotnet nuget add source https://nuget.pkg.github.com/BhanuKorthiwada/index.json -n github -u BhanuKorthiwada -p GH_TOKEN
-                  dotnet nuget push "./artifacts/*.nupkg" --source "github"
+                  # dotnet nuget add source https://nuget.pkg.github.com/BhanuKorthiwada/index.json -n github -u BhanuKorthiwada -p GH_TOKEN
+                  # dotnet nuget push "./artifacts/*.nupkg" --source "github"
 
             - uses: actions/upload-artifact@v2
               with:
