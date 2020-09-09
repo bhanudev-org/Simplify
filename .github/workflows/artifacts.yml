@@ -29,6 +29,7 @@ jobs:
                   mkdir artifacts
                   find . -name '*.nupkg' -exec cp {} ./artifacts \;
                   dotnet nuget add source https://nuget.pkg.github.com/BhanuKorthiwada/index.json -n github -u BhanuKorthiwada -p ${{ secrets.GH_TOKEN }} --store-password-in-clear-text
+                  dotnet nuget push ./artifacts/Simplify.SeedWork.*.nupkg --source "github"
                   dotnet nuget push "./artifacts/*.nupkg" --source "github"
 
             - uses: actions/upload-artifact@v2
