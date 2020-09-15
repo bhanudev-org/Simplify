@@ -1,8 +1,8 @@
 <Project>
   <PropertyGroup>
-    <ExtensionsVersion>5.0.0-preview.*</ExtensionsVersion>
+    <ExtensionsVersion>5.0.0-rc.*</ExtensionsVersion>
     <IdentityServerVersion>4.0.4</IdentityServerVersion>
-    <MongoDbVersion>2.11.1</MongoDbVersion>
+    <MongoDbVersion>2.11.*</MongoDbVersion>
     <MassTransitVersion>7.0.*</MassTransitVersion>
   </PropertyGroup>
 
