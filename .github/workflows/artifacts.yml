@@ -5,6 +5,9 @@ on: [push]
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+            DOTNET_NOLOGO: true
+            DOTNET_CLI_TELEMETRY_OPTOUT: true
 
         steps:
             - name: Checkout Code
@@ -18,18 +21,14 @@ jobs:
               uses: actions/setup-dotnet@v1
               with:
                   dotnet-version: '5.0.100-rc.1.20452.10'
-              env:
-                  DOTNET_NOLOGO: true
-                  DOTNET_CLI_TELEMETRY_OPTOUT: true
 
             - name: Build with dotnet
               run: |
                   cd backend
-                  dotnet pack --configuration Release
-                  mkdir artifacts
-                  find . -name '*.nupkg' -exec cp {} ./artifacts \;
+                  dotnet pack --configuration Release --output ./artifacts
                   dotnet nuget add source https://nuget.pkg.github.com/BhanuKorthiwada/index.json -n github -u BhanuKorthiwada -p ${{ secrets.GH_TOKEN }} --store-password-in-clear-text
-                  dotnet nuget push ./artifacts/*.nupkg --source "github"
+                  dotnet nuget push ./artifacts/*.nupkg --source "github" --api-key ${{ secrets.GH_TOKEN }}
+                  # until dotnet nuget push ./artifacts/*.nupkg --skip-duplicate --no-symbols true; do echo "Retrying"; sleep 1; done
 
             - uses: actions/upload-artifact@v2
               with:
