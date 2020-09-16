@@ -17,6 +17,8 @@
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+
+    <NoWarn>$(NoWarn);MINVER1001</NoWarn>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(IsPackable) == True">

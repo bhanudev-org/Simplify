@@ -81,7 +81,7 @@ jobs:
                   docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
                   docker push $IMAGE_ID:$VERSION
 
-                  IMAGE_ID=docker.pkg.github.com/${{ github.repository }}/$IMAGE_NAME
+                  IMAGE_ID=docker.pkg.github.com/bhanukorthiwada/simplify/$IMAGE_NAME
                   docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
                   docker tag $IMAGE_NAME $IMAGE_ID:$RUN_ID
                   docker push $IMAGE_ID:$VERSION
