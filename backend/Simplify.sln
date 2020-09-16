@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Storage.MongoDb", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simplify", "Simplify", "{B02AF9F2-4900-4286-A354-646BE27166D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Identity.MongoDb", "src\Modules\Simplify.Identity.MongoDb\Simplify.Identity.MongoDb.csproj", "{6B621024-3982-4C9D-A479-DC9E46D5FA4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{2CF0CE9B-6F14-4277-8247-D2DD6D0D66A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CF0CE9B-6F14-4277-8247-D2DD6D0D66A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CF0CE9B-6F14-4277-8247-D2DD6D0D66A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B621024-3982-4C9D-A479-DC9E46D5FA4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B621024-3982-4C9D-A479-DC9E46D5FA4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B621024-3982-4C9D-A479-DC9E46D5FA4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B621024-3982-4C9D-A479-DC9E46D5FA4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,6 +90,7 @@ Global
 		{21986EDF-D395-4433-AE1B-D7E1F46A019A} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
 		{2CF0CE9B-6F14-4277-8247-D2DD6D0D66A1} = {21986EDF-D395-4433-AE1B-D7E1F46A019A}
 		{B02AF9F2-4900-4286-A354-646BE27166D6} = {6B0DFD3E-F239-4E63-873A-F6DA75279F21}
+		{6B621024-3982-4C9D-A479-DC9E46D5FA4A} = {21986EDF-D395-4433-AE1B-D7E1F46A019A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F7FC6679-7D6B-4BAA-9E78-F6D9EF754663}

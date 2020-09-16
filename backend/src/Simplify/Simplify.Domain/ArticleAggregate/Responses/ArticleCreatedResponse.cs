@@ -1,6 +1,8 @@
 using System;
 using Simplify.SeedWork.Commands;
 
+#nullable disable
+
 namespace Simplify.Domain.ArticleAggregate.Responses
 {
     public class ArticleCreatedResponse : ICommandResponse

@@ -1,4 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(LibraryTargetFrameWorks)</TargetFrameworks>
+  </PropertyGroup>
 
   <ItemGroup Label="Vendor">
     <PackageReference Include="MassTransit" />
@@ -7,12 +10,14 @@
     <PackageReference Include="CSharpFunctionalExtensions" />
   </ItemGroup>
 
-  <ItemGroup Label="MS">    
+  <ItemGroup Label="MS">
     <PackageReference Include="Microsoft.Extensions.Options" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" />
     <PackageReference Include="Microsoft.Extensions.Logging" />
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" Condition="'$(TargetFramework)' == 'netstandard2.0'"/>
   </ItemGroup>
+
 
 </Project>

@@ -3,13 +3,12 @@
     <Deterministic>true</Deterministic>
     <AnalysisLevel>latest</AnalysisLevel>
     <LangVersion>9.0</LangVersion>
-    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
-    <Deterministic>true</Deterministic>
     <Nullable>enable</Nullable>
+
     <Authors>Bhanu Prakash Korthiwada</Authors>
     <Copyright>Copyright © Simplify</Copyright>
     <Company>Simplify</Company>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    
     <PackageProjectUrl>https://github.com/BhanuKorthiwada/Simplify</PackageProjectUrl>
     <PackageIcon>icon.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
@@ -20,7 +19,26 @@
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
   </PropertyGroup>
 
-  <!--MinVer-->
+  <PropertyGroup Condition="$(IsPackable) == True">
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  
+
+  <!-- File Includes -->
+  <ItemGroup>
+    <None Include="../../../.editorconfig" Pack="false" Link=".editorconfig" />
+    <None Include="../../../../docs/icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+  <!-- Target Frameworks -->
+  <PropertyGroup>
+    <ApplicationTargetFrameWork>net5.0</ApplicationTargetFrameWork>
+    <LibraryTargetFrameWork>net5.0</LibraryTargetFrameWork>
+    <LibraryTargetFrameWorks>netstandard2.0;net5.0</LibraryTargetFrameWorks>
+    <!--<NuGetTargetFrameWorks>netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0</NuGetTargetFrameWorks>-->
+  </PropertyGroup>
+
+  <!-- MinVer -->
   <PropertyGroup>
     <MinVerTagPrefix>v</MinVerTagPrefix>
     <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
@@ -28,11 +46,7 @@
     <MinVerMinimumMajorMinor>1.0</MinVerMinimumMajorMinor>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="../../../.editorconfig" Link=".editorconfig" />
-    <None Include="../../../../docs/icon.png" Pack="true" Visible="false" PackagePath="" />
-  </ItemGroup>
-
+  <!-- Library: NuGet Default Dependencies -->
   <ItemGroup Condition="$(IsPackable) == 'true'">
     <PackageReference Include="MinVer" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" />

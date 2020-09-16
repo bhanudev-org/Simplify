@@ -44,8 +44,12 @@ namespace Simplify.SeedWork.Domain
 
         public override string ToString() => _id ?? _emptyString;
 
-        public int CompareTo([AllowNull] DomainId other) => string.Compare(_id, other._id, StringComparison.Ordinal);
-
+#if NET5_0
+public int CompareTo([AllowNull] DomainId other) => string.Compare(_id, other._id, StringComparison.Ordinal);
+#elif NETSTANDARD2_0
+        public int CompareTo(DomainId other) => string.Compare(_id, other._id, StringComparison.Ordinal);
+#endif
+        
         public static implicit operator DomainId(string value) => Create(value);
 
         public static implicit operator DomainId(Guid value) => Create(value);

@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
+
+#if NET5_0
+using System.Diagnostics.CodeAnalysis;
+#endif
 
 namespace Simplify.SeedWork.Domain
 {
@@ -48,6 +51,8 @@ namespace Simplify.SeedWork.Domain
         ///     Gets the <see cref="int" /> Enumeration value.
         /// </summary>
         public int Value { get; }
+        
+#if NET5_0
 
         /// <summary>
         ///     Compares the instance of <see cref="Enumeration" /> with another object of <see cref="Enumeration" />
@@ -59,6 +64,18 @@ namespace Simplify.SeedWork.Domain
         /// </returns>
         public int CompareTo([NotNull] object? other) => Value.CompareTo(((Enumeration)other!).Value);
 
+#elif NETSTANDARD2_0
+
+        /// <summary>
+        ///     Compares the instance of <see cref="Enumeration" /> with another object of <see cref="Enumeration" />
+        /// </summary>
+        /// <param name="other">The <see cref="Enumeration" /> value to compared</param>
+        /// <returns>
+        ///     An integer that indicates whether the current instance of <see cref="Enumeration" /> precedes, follows,
+        ///     or occurs in the same position in the sort order as the other <see cref="Enumeration" />.
+        /// </returns>
+        public int CompareTo(object? other) => Value.CompareTo(((Enumeration)other!).Value);
+#endif
 
         /// <inheritdoc />
         public override string ToString() => Name;
@@ -68,7 +85,7 @@ namespace Simplify.SeedWork.Domain
         /// </summary>
         /// <typeparam name="TEnumeration">The type that inherits <see cref="Enumeration" />.</typeparam>
         /// <returns>The list of <typeparamref name="TEnumeration" /></returns>
-        public static IEnumerable<TEnumeration> GetAll<TEnumeration>() where TEnumeration : Enumeration
+        public static IEnumerable<TEnumeration?> GetAll<TEnumeration>() where TEnumeration : Enumeration
         {
             var fields = typeof(TEnumeration).GetFields(BindingFlags.Public | BindingFlags.Static | BindingFlags.DeclaredOnly);
 
@@ -76,7 +93,7 @@ namespace Simplify.SeedWork.Domain
         }
 
         ///<inheritdoc />
-        public override bool Equals(object obj)
+        public override bool Equals(object? obj)
         {
             if(!(obj is Enumeration otherValue))
                 return false;
@@ -115,11 +132,11 @@ namespace Simplify.SeedWork.Domain
         /// </returns>
         public static bool TryGetFromValueOrName<TEnumeration>(
             string valueOrName,
-            out TEnumeration enumeration)
+            out TEnumeration? enumeration)
             where TEnumeration : Enumeration =>
-            TryParse(item => item.Name == valueOrName, out enumeration) ||
+            TryParse(item => item?.Name == valueOrName, out enumeration) ||
             (int.TryParse(valueOrName, out var value) &&
-             TryParse(item => item.Value == value, out enumeration));
+             TryParse(item => item?.Value == value, out enumeration));
 
         /// <summary>
         ///     Gets the instance of <typeparamref name="TEnumeration" /> from value.
@@ -129,7 +146,7 @@ namespace Simplify.SeedWork.Domain
         /// <exception cref="InvalidOperationException">"<paramref name="value" /> is not valid"</exception>
         public static TEnumeration FromValue<TEnumeration>(int value) where TEnumeration : Enumeration
         {
-            var matchingItem = Parse<TEnumeration, int>(value, "nameOrValue", item => item.Value == value);
+            var matchingItem = Parse<TEnumeration, int>(value, "nameOrValue", item => item?.Value == value);
             return matchingItem;
         }
 
@@ -142,13 +159,13 @@ namespace Simplify.SeedWork.Domain
         /// <exception cref="InvalidOperationException">"<paramref name="name" /> is not valid"</exception>
         public static TEnumeration FromName<TEnumeration>(string name) where TEnumeration : Enumeration
         {
-            var matchingItem = Parse<TEnumeration, string>(name, "name", item => item.Name == name);
+            var matchingItem = Parse<TEnumeration, string>(name, "name", item => item?.Name == name);
             return matchingItem;
         }
 
         private static bool TryParse<TEnumeration>(
-            Func<TEnumeration, bool> predicate,
-            out TEnumeration enumeration)
+            Func<TEnumeration?, bool> predicate,
+            out TEnumeration? enumeration)
             where TEnumeration : Enumeration
         {
             enumeration = GetAll<TEnumeration>().FirstOrDefault(predicate);
@@ -158,7 +175,7 @@ namespace Simplify.SeedWork.Domain
         private static TEnumeration Parse<TEnumeration, TIntOrString>(
             TIntOrString nameOrValue,
             string description,
-            Func<TEnumeration, bool> predicate)
+            Func<TEnumeration?, bool> predicate)
             where TEnumeration : Enumeration
         {
             var matchingItem = GetAll<TEnumeration>().FirstOrDefault(predicate);

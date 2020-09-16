@@ -1,46 +1,47 @@
 <Project>
+  <!-- Versions -->
   <PropertyGroup>
-    <ExtensionsVersion>5.0.0-rc.*</ExtensionsVersion>
-    <IdentityServerVersion>4.0.4</IdentityServerVersion>
+    <AspNetVersion>5.0.0-rc.*</AspNetVersion>
+    <IdentityServerVersion>4.0.*</IdentityServerVersion>
     <MongoDbVersion>2.11.*</MongoDbVersion>
     <MassTransitVersion>7.0.*</MassTransitVersion>
   </PropertyGroup>
 
+  <!-- Packages : Code Analysis -->
   <ItemGroup>
-    <!--identity server -->
+    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0" PrivateAssets="All" />
+    <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Packages : Microsoft -->
+  <ItemGroup>
+    <PackageReference Update="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Identity.UI" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Components.Web" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
+
+    <PackageReference Update="Microsoft.Extensions.Logging" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Logging.Abstractions" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Configuration" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(AspNetVersion)" />
+    
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="$(AspNetVersion)" />
+    <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetVersion)" />
+    
+    <PackageReference Update="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
+    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <!-- Packages : Third Party -->
+  <ItemGroup>
     <PackageReference Update="IdentityServer4" Version="$(IdentityServerVersion)" />
     <PackageReference Update="IdentityServer4.AspNetIdentity" Version="$(IdentityServerVersion)" />
-
-    <!--microsoft extensions -->
-    <PackageReference Update="Microsoft.Extensions.Logging" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Logging.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Configuration" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Configuration.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Options" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(ExtensionsVersion)" />
-
-    <PackageReference Update="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.AspNetCore.Identity.UI" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="$(ExtensionsVersion)" />
-    <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(ExtensionsVersion)" />
-
-    <PackageReference Update="Microsoft.AspNetCore.Components.Web" Version="$(ExtensionsVersion)" />
-    
-    <PackageReference Update="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
-    <PackageReference Update="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
-
-    <!--misc-->
-    <PackageReference Update="Ensure.That" Version="9.2.0" />
-    <PackageReference Update="NodaTime" Version="3.0.0" />
-    <PackageReference Update="AutoMapper" Version="10.0.0" />
-    <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
-    <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
-    <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Update="CSharpFunctionalExtensions" Version="2.11.*" />
 
     <PackageReference Update="MediatR" Version="8.1.0" />
     <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
@@ -48,20 +49,22 @@
     <PackageReference Update="MassTransit" Version="$(MassTransitVersion)" />
     <PackageReference Update="MassTransit.AspNetCore" Version="$(MassTransitVersion)" />
     <PackageReference Update="MassTransit.Extensions.DependencyInjection" Version="$(MassTransitVersion)" />
-
-    <PackageReference Update="Serilog.AspNetCore" Version="3.4.*" />
-
-    <!--mongodb-->
+    
     <PackageReference Update="MongoDB.Bson" Version="$(MongoDbVersion)" />
     <PackageReference Update="MongoDB.Driver" Version="$(MongoDbVersion)" />
     <PackageReference Update="MongoDB.Driver.Core" Version="$(MongoDbVersion)" />
     <PackageReference Update="MongoDB.Driver.GridFS" Version="$(MongoDbVersion)" />
 
-    <!--code analysis-->
-    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0" PrivateAssets="All" />
-    <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+    <PackageReference Update="AutoMapper" Version="10.0.0" />
+    <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
 
-    <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Update="MinVer" Version="2.3.0" PrivateAssets="All" />
+
+    <PackageReference Update="Serilog.AspNetCore" Version="3.4.*" />
+    <PackageReference Update="Ensure.That" Version="9.2.0" />
+    <PackageReference Update="NodaTime" Version="3.0.0" />
+    <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
+    <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.11.*" />
   </ItemGroup>
 </Project>
