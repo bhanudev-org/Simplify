@@ -8,6 +8,7 @@ jobs:
         env:
             DOTNET_NOLOGO: true
             DOTNET_CLI_TELEMETRY_OPTOUT: true
+            DOTNET_SYSTEM_NET_HTTP_USESOCKETSHTTPHANDLER: 0
 
         steps:
             - name: Checkout Code
