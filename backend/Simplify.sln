@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{42
 		.editorconfig = .editorconfig
 		Directory.Build.props = Directory.Build.props
 		Directory.Build.targets = Directory.Build.targets
-		README.md = README.md
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Tests", "tests\Simplify.Tests\Simplify.Tests.csproj", "{759FC5CD-01A8-4F5E-88EB-CCF2665B9B8C}"
@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Storage.MongoDb", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Simplify", "Simplify", "{B02AF9F2-4900-4286-A354-646BE27166D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simplify.Identity.MongoDb", "src\Modules\Simplify.Identity.MongoDb\Simplify.Identity.MongoDb.csproj", "{6B621024-3982-4C9D-A479-DC9E46D5FA4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplify.Identity.MongoDb", "src\Modules\Simplify.Identity.MongoDb\Simplify.Identity.MongoDb.csproj", "{6B621024-3982-4C9D-A479-DC9E46D5FA4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
