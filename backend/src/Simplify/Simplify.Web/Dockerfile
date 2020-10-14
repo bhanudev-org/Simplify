@@ -8,7 +8,7 @@ WORKDIR /code/src/Simplify/Simplify.Web
 RUN dotnet build Simplify.Web.csproj -c Release -o /app/build
 RUN dotnet publish Simplify.Web.csproj -c Release -o /app/publish -f net5.0 -p:version=$BUILD__VERSION
 
-FROM mcr.microsoft.com/dotnet/core/aspnet:5.0
+FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /app
 COPY --from=backend /app/publish .
 EXPOSE 80/tcp 443/tcp
