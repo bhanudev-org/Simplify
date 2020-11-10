@@ -28,7 +28,6 @@
 
   <!-- File Includes -->
   <ItemGroup>
-    <None Include="../../../.editorconfig" Pack="false" Link=".editorconfig" />
     <None Include="../../../../docs/icon.png" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
 
