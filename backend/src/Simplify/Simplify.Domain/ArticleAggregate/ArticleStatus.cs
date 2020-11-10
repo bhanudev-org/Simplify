@@ -1,4 +1,4 @@
-using Simplify.SeedWork.Domain;
+using Pro.Enum;
 
 namespace Simplify.Domain.ArticleAggregate
 {

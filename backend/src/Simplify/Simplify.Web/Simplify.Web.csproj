@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>$(ApplicationTargetFrameWork)</TargetFramework>
+    <TargetFramework>$(ApplicationTargetFramework)</TargetFramework>
     <UserSecretsId>aspnet-Simplify.Web-1F592EF3-A49C-4199-A2F6-F32C5EEDA870</UserSecretsId>
     <IsPackable>false</IsPackable>
   </PropertyGroup>

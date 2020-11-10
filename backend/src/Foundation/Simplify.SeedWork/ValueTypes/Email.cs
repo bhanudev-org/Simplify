@@ -8,7 +8,7 @@ namespace Simplify.SeedWork
     public class Email : SimpleValueObject<string>
     {
         private const string _displayText = "Email";
-        
+
         private Email(string value) : base(value) { }
 
         public static Result<Email> Create(string value)

@@ -1,15 +1,15 @@
 <Project>
   <!-- Versions -->
   <PropertyGroup>
-    <AspNetVersion>5.0.0-rc.*</AspNetVersion>
-    <IdentityServerVersion>4.0.*</IdentityServerVersion>
-    <MongoDbVersion>2.11.*</MongoDbVersion>
-    <MassTransitVersion>7.0.*</MassTransitVersion>
+    <AspNetVersion>5.0.0</AspNetVersion>
+    <IdentityServerVersion>4.1.1</IdentityServerVersion>
+    <MongoDbVersion>2.11.4</MongoDbVersion>
+    <MassTransitVersion>7.0.6</MassTransitVersion>
   </PropertyGroup>
 
   <!-- Packages : Code Analysis -->
   <ItemGroup>
-    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.0" PrivateAssets="All" />
+    <PackageReference Update="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="3.3.1" PrivateAssets="All" />
     <PackageReference Update="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
   </ItemGroup>
 
@@ -66,6 +66,6 @@
     <PackageReference Update="NodaTime" Version="3.0.*" />
     <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
     <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Update="CSharpFunctionalExtensions" Version="2.11.*" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.12.2" />
   </ItemGroup>
 </Project>

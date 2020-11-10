@@ -2,7 +2,7 @@ using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
-using Simplify.SeedWork.Domain;
+using Pro.Enum;
 
 namespace Simplify.Storage.MongoDb.Serialization
 {

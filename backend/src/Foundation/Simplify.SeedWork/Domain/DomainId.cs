@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using Simplify.SeedWork.TypeConverters;
 
 namespace Simplify.SeedWork.Domain
@@ -17,17 +16,12 @@ namespace Simplify.SeedWork.Domain
 
         public static DomainId? CreateNullable(string? value)
         {
-            if(value == null) return null;
-
-            return new DomainId(value);
-        }
-
-        public static DomainId Create(string value)
-        {
             if(value == null || string.Equals(value, _emptyString, StringComparison.OrdinalIgnoreCase)) return Empty;
 
             return new DomainId(value);
         }
+
+        public static DomainId Create(string value) => string.Equals(value, _emptyString, StringComparison.OrdinalIgnoreCase) ? Empty : new DomainId(value);
 
         public static DomainId Create(Guid value)
         {
@@ -35,6 +29,8 @@ namespace Simplify.SeedWork.Domain
 
             return new DomainId(value.ToString());
         }
+
+        public int CompareTo(DomainId other) => 0;
 
         public override bool Equals(object? obj) => obj is DomainId status && Equals(status);
 
@@ -44,12 +40,6 @@ namespace Simplify.SeedWork.Domain
 
         public override string ToString() => _id ?? _emptyString;
 
-#if NET5_0
-public int CompareTo([AllowNull] DomainId other) => string.Compare(_id, other._id, StringComparison.Ordinal);
-#elif NETSTANDARD2_0
-        public int CompareTo(DomainId other) => string.Compare(_id, other._id, StringComparison.Ordinal);
-#endif
-        
         public static implicit operator DomainId(string value) => Create(value);
 
         public static implicit operator DomainId(Guid value) => Create(value);

@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>$(ApplicationTargetFrameWork)</TargetFramework>
+    <TargetFramework>$(ApplicationTargetFramework)</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
