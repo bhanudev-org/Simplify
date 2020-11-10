@@ -1,6 +1,7 @@
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using Simplify.Core;
+using Simplify.Core.ArticleAggregate;
 
 namespace Simplify.Infrastructure.MongoDb.Serialization
 {

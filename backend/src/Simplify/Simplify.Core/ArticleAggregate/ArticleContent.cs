@@ -1,6 +1,6 @@
 using CSharpFunctionalExtensions;
 
-namespace Simplify.Core
+namespace Simplify.Core.ArticleAggregate
 {
     public class ArticleContent : SimpleValueObject<string>
     {

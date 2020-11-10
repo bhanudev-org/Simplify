@@ -1,7 +1,7 @@
-using Simplify.Domain.ArticleAggregate.Responses;
+using Simplify.Core.ArticleAggregate.Responses;
 using Simplify.SeedWork.Commands;
 
-namespace Simplify.Domain.ArticleAggregate.Commands
+namespace Simplify.Core.ArticleAggregate.Commands
 {
     public class CreateArticleCommand : ICommand<ArticleCreatedResponse>
     {

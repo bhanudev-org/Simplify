@@ -3,7 +3,7 @@ using Simplify.SeedWork.Commands;
 
 #nullable disable
 
-namespace Simplify.Domain.ArticleAggregate.Responses
+namespace Simplify.Core.ArticleAggregate.Responses
 {
     public class ArticleCreatedResponse : ICommandResponse
     {

@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Simplify.Storage.MongoDb\Simplify.Storage.MongoDb.csproj" />
-    <ProjectReference Include="..\Simplify.Domain\Simplify.Domain.csproj" />
+    <ProjectReference Include="..\Simplify.Core\Simplify.Core.csproj" />
   </ItemGroup>
 
 </Project>

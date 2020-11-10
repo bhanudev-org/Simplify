@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
-using Simplify.Domain.ArticleAggregate;
+using Simplify.Core.ArticleAggregate;
 using Simplify.Storage.MongoDb;
 
 namespace Simplify.Infrastructure.Storage

@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>$(ApplicationTargetFramework)</TargetFramework>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\Simplify.Core\Simplify.Core.csproj" />
-  </ItemGroup>
-</Project>

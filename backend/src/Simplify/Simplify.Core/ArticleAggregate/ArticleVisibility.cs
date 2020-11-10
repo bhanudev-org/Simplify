@@ -1,6 +1,6 @@
 using Pro.Enum;
 
-namespace Simplify.Domain.ArticleAggregate
+namespace Simplify.Core.ArticleAggregate
 {
     public class ArticleVisibility : Enumeration
     {

@@ -1,5 +1,5 @@
 using MongoDB.Bson.Serialization;
-using Simplify.Domain.ArticleAggregate;
+using Simplify.Core.ArticleAggregate;
 using Simplify.Infrastructure.MongoDb.Serialization;
 using Simplify.Storage.MongoDb.Serialization;
 

@@ -1,11 +1,10 @@
 using System;
 using CSharpFunctionalExtensions;
 using NodaTime;
-using Simplify.Core;
 using Simplify.SeedWork.Domain;
 using Simplify.SeedWork.Entities;
 
-namespace Simplify.Domain.ArticleAggregate
+namespace Simplify.Core.ArticleAggregate
 {
     public class Article : AggregateRoot, IEntityWithAudit
     {

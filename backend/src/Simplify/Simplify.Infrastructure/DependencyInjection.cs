@@ -1,5 +1,5 @@
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Simplify.Domain.ArticleAggregate;
+using Simplify.Core.ArticleAggregate;
 using Simplify.Infrastructure.Storage;
 using Simplify.SeedWork;
 using Simplify.SeedWork.Storage;

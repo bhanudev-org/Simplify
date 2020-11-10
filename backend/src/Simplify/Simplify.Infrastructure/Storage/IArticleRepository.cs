@@ -1,4 +1,4 @@
-using Simplify.Domain.ArticleAggregate;
+using Simplify.Core.ArticleAggregate;
 using Simplify.SeedWork.Storage;
 
 namespace Simplify.Infrastructure.Storage

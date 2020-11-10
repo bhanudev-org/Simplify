@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using Simplify.Core;
-using Simplify.Domain.ArticleAggregate;
-using Simplify.Domain.ArticleAggregate.Commands;
-using Simplify.Domain.ArticleAggregate.Responses;
+using Simplify.Core.ArticleAggregate;
+using Simplify.Core.ArticleAggregate.Commands;
+using Simplify.Core.ArticleAggregate.Responses;
 using Simplify.Infrastructure.Storage;
 using Simplify.SeedWork.Commands;
 
