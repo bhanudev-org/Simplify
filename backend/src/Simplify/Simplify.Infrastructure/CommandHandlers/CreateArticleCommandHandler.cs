@@ -1,17 +1,15 @@
-using System;
+using System.Threading;
 using System.Threading.Tasks;
-using MassTransit;
 using Microsoft.Extensions.Logging;
-using Simplify.Core;
 using Simplify.Core.ArticleAggregate;
 using Simplify.Core.ArticleAggregate.Commands;
 using Simplify.Core.ArticleAggregate.Responses;
 using Simplify.Infrastructure.Storage;
-using Simplify.SeedWork.Commands;
+using Simplify.SeedWork;
 
 namespace Simplify.Infrastructure.CommandHandlers
 {
-    public class CreateArticleCommandHandler : ICommandHandler<CreateArticleCommand>
+    public class CreateArticleCommandHandler : ICommandHandler<CreateArticleCommand,ArticleCreatedResponse>
     {
         private readonly IArticleRepository _articleRepository;
         private readonly ILogger<CreateArticleCommandHandler> _logger;
@@ -21,32 +19,31 @@ namespace Simplify.Infrastructure.CommandHandlers
             _articleRepository = articleRepository;
             _logger = logger;
         }
-
-        public async Task Consume(ConsumeContext<CreateArticleCommand> context)
+        
+        public async Task<ArticleCreatedResponse> Handle(CreateArticleCommand request, CancellationToken cancellationToken)
         {
             _logger.LogDebug("Command Called");
 
-            var content = ArticleContent.Create(context.Message.Content);
-
+            var content = ArticleContent.Create(request.Content);
+            var result = new ArticleCreatedResponse();
             if(content.IsSuccess)
             {
                 var article = Article.Create(content.Value);
 
                 if(article.IsSuccess)
                 {
-                    var stored = await _articleRepository.CreateAsync(article.Value);
+                    var stored = await _articleRepository.CreateAsync(article.Value, cancellationToken);
 
-                    await context.RespondAsync<ArticleCreatedResponse>(new {stored.Id, Success = stored.IsAdded});
+                    result.Updated(stored.Id,true);
+                    return result;
                 }
-                else
-                {
-                    await context.RespondAsync<ArticleCreatedResponse>(new {Id = Guid.Empty, Success = false, Message = article.Error});
-                }
+
+                result.Updated(message: article.Error);
+                return result;
             }
-            else
-            {
-                await context.RespondAsync<ArticleCreatedResponse>(new {Id = Guid.Empty, Success = false, Message = content.Error});
-            }
+
+            result.Updated(message: content.Error);
+            return result;
         }
     }
 }

@@ -4,8 +4,8 @@
   </PropertyGroup>
 
   <ItemGroup Label="Vendor">
-    <PackageReference Include="MassTransit" />
-    <PackageReference Include="MassTransit.Extensions.DependencyInjection" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />
     <PackageReference Include="NodaTime" />
     <PackageReference Include="CSharpFunctionalExtensions" />
   </ItemGroup>
@@ -16,6 +16,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging" />
     <PackageReference Include="Microsoft.Extensions.Configuration" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
-    <PackageReference Include="Pro.Enum" Version="1.0.1" />
+    <PackageReference Include="Pro.Enum" Version="1.0.2" />
   </ItemGroup>
 </Project>

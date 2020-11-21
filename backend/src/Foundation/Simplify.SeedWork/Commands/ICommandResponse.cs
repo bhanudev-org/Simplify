@@ -1,4 +1,4 @@
-namespace Simplify.SeedWork.Commands
+namespace Simplify.SeedWork
 {
     public interface ICommandResponse { }
 }

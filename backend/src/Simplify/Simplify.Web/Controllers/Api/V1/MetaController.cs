@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Simplify.SeedWork.Commands;
+using Simplify.SeedWork;
 using Simplify.Web.Models;
 
 namespace Simplify.Web.Controllers.Api.V1

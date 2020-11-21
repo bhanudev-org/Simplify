@@ -1,5 +1,5 @@
 using System;
-using Simplify.SeedWork.Commands;
+using Simplify.SeedWork;
 
 namespace Simplify.Web.App.Commands
 {

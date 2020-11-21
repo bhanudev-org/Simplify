@@ -1,9 +1,8 @@
 using System.Threading;
 using System.Threading.Tasks;
-using MassTransit;
-using MassTransit.Mediator;
+using MediatR;
 
-namespace Simplify.SeedWork.Commands
+namespace Simplify.SeedWork
 {
     public class CommandDispatcher : ICommandDispatcher
     {
@@ -11,13 +10,10 @@ namespace Simplify.SeedWork.Commands
 
         public CommandDispatcher(IMediator mediator) => _mediator = mediator;
 
-        public async Task SendCommand(object command) => await _mediator.Send(command);
+        public async Task SendCommand(object command, CancellationToken ct = default) =>
+            await _mediator.Send(command, ct);
 
-        public async Task<Response<TCommandResponse>> SendCommand<TCommandResponse>(ICommand<TCommandResponse> command, CancellationToken cancellationToken = default) where TCommandResponse : class, ICommandResponse
-        {
-            var client = _mediator.CreateRequestClient<ICommand<TCommandResponse>>();
-
-            return await client.GetResponse<TCommandResponse>(command, cancellationToken);
-        }
+        public async Task<TCommandResponse> SendCommand<TCommandResponse>(ICommand<TCommandResponse> command, CancellationToken ct = default) where TCommandResponse : ICommandResponse =>
+            await _mediator.Send(command, ct);
     }
 }

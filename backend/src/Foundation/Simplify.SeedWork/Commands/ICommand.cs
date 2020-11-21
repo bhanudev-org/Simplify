@@ -1,6 +1,10 @@
-namespace Simplify.SeedWork.Commands
-{
-    public interface ICommand { }
+using MediatR;
 
-    public interface ICommand<out TCommandResponse> : ICommand where TCommandResponse : ICommandResponse { }
+namespace Simplify.SeedWork
+{
+    public interface IBaseCommand : IRequest { }
+
+    public interface ICommand : IRequest<Unit> { }
+
+    public interface ICommand<out TCommandResponse> : IRequest<TCommandResponse> { }
 }

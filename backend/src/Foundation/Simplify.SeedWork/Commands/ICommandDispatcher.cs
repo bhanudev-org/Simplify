@@ -1,16 +1,16 @@
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
-using MassTransit;
 
-namespace Simplify.SeedWork.Commands
+namespace Simplify.SeedWork
 {
     public interface ICommandDispatcher
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        Task SendCommand(object command);
+        Task SendCommand(object command, CancellationToken ct = default);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        Task<Response<TCommandResponse>> SendCommand<TCommandResponse>(ICommand<TCommandResponse> command, CancellationToken cancellationToken = default) where TCommandResponse : class, ICommandResponse;
+        Task<TCommandResponse> SendCommand<TCommandResponse>(ICommand<TCommandResponse> command, CancellationToken ct = default)
+            where TCommandResponse : ICommandResponse;
     }
 }

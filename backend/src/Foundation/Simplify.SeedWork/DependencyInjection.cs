@@ -1,8 +1,7 @@
 using System.Reflection;
-using MassTransit;
+using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Simplify.SeedWork.Commands;
 
 namespace Simplify.SeedWork
 {
@@ -14,11 +13,7 @@ namespace Simplify.SeedWork
         {
             builder.Services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
 
-            builder.Services.AddMediator(config =>
-            {
-                config.AddConsumers(SimplifySeedWorkHelper.Assembly);
-                config.AddConsumers(assemblies);
-            });
+            builder.Services.AddMediatR(assemblies);
 
             return builder;
         }

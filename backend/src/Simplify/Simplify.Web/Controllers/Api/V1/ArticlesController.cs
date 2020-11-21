@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Simplify.Core.ArticleAggregate;
 using Simplify.Core.ArticleAggregate.Commands;
-using Simplify.SeedWork.Commands;
+using Simplify.SeedWork;
 using Simplify.SeedWork.Storage;
 using Simplify.Web.Models;
 

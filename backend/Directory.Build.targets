@@ -44,8 +44,8 @@
     <PackageReference Update="IdentityServer4" Version="$(IdentityServerVersion)" />
     <PackageReference Update="IdentityServer4.AspNetIdentity" Version="$(IdentityServerVersion)" />
 
-    <PackageReference Update="MediatR" Version="8.1.0" />
-    <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+    <PackageReference Update="MediatR" Version="9.0.0" />
+    <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
 
     <PackageReference Update="MassTransit" Version="$(MassTransitVersion)" />
     <PackageReference Update="MassTransit.AspNetCore" Version="$(MassTransitVersion)" />

@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
     <PackageReference Include="Serilog.AspNetCore" />
-    <PackageReference Include="WebMarkupMin.AspNetCore3" Version="2.8.*" />
+    <PackageReference Include="WebMarkupMin.AspNetCore3" Version="2.8.15" />
   </ItemGroup>
 
   <ItemGroup>
