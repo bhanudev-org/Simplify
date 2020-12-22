@@ -34,7 +34,7 @@ jobs:
                   else
                     cd backend
                     VERSION=$(date +%y.%m.%d).$GITHUB_RUN_NUMBER
-                    docker build . --file ./src/Simplify/Simplify.Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$VERSION
+                    docker build . --file ./src/Simplify/Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$VERSION
                   fi
 
     # Push image to GitHub Packages.
@@ -53,7 +53,7 @@ jobs:
               run: |
                   cd backend
                   VERSION=$(date +%y.%m.%d).$GITHUB_RUN_NUMBER
-                  docker build . --file ./src/Simplify/Simplify.Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$VERSION
+                  docker build . --file ./src/Simplify/Web/Dockerfile --tag $IMAGE_NAME --build-arg BUILD__VERSION=$VERSION
 
             - name: Log into GitHub Container Registry
               # TODO: Create a PAT with `read:packages` and `write:packages` scopes and save it as an Actions secret `CR_PAT`

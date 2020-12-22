@@ -3,6 +3,13 @@
     <TargetFrameworks>$(LibraryTargetFrameworks)</TargetFrameworks>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<MyProjectName>SeedWork</MyProjectName>
+		<MyProjectFullName>$(MyProjectPrefix).$(MyProjectName)</MyProjectFullName>
+		<AssemblyName>$(MyProjectFullName)</AssemblyName>
+		<RootNamespace>$(MyProjectFullName)</RootNamespace>
+	</PropertyGroup>
+
   <ItemGroup Label="Vendor">
     <PackageReference Include="MediatR" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" />

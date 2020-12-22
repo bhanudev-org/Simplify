@@ -19,6 +19,7 @@
     <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
 
     <NoWarn>$(NoWarn);MINVER1001</NoWarn>
+    <MyProjectPrefix>Simplify</MyProjectPrefix>
   </PropertyGroup>
 
   <PropertyGroup Condition="$(IsPackable) == True">

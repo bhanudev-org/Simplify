@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(ApplicationTargetFramework)</TargetFramework>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<MyProjectName>Core</MyProjectName>
+		<MyProjectFullName>$(MyProjectPrefix).$(MyProjectName)</MyProjectFullName>
+		<AssemblyName>$(MyProjectFullName)</AssemblyName>
+		<RootNamespace>$(MyProjectFullName)</RootNamespace>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Foundation\SeedWork\SeedWork.csproj" />
+  </ItemGroup>
+</Project>

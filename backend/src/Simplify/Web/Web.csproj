@@ -6,20 +6,27 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<MyProjectName>Web</MyProjectName>
+		<MyProjectFullName>$(MyProjectPrefix).$(MyProjectName)</MyProjectFullName>
+		<AssemblyName>$(MyProjectFullName)</AssemblyName>
+		<RootNamespace>$(MyProjectFullName)</RootNamespace>
+	</PropertyGroup>
+
   <ItemGroup>
 
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
-    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" />
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" />
     <PackageReference Include="Serilog.AspNetCore" />
-    <PackageReference Include="WebMarkupMin.AspNetCore3" Version="2.8.15" />
+    <PackageReference Include="WebMarkupMin.AspNetCore5" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Simplify.Infrastructure\Simplify.Infrastructure.csproj" />
+    <ProjectReference Include="..\Infra\Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>

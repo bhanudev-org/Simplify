@@ -18,7 +18,7 @@ using Simplify.Infrastructure;
 using Simplify.SeedWork;
 using Simplify.Storage.MongoDb;
 using Simplify.Web.Data;
-using WebMarkupMin.AspNetCore3;
+using WebMarkupMin.AspNetCore5;
 using WebMarkupMin.Core;
 
 namespace Simplify.Web
