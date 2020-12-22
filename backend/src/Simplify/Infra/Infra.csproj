@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>$(ApplicationTargetFramework)</TargetFramework>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<MyProjectName>Infra</MyProjectName>
+		<MyProjectFullName>$(MyProjectPrefix).$(MyProjectName)</MyProjectFullName>
+		<AssemblyName>$(MyProjectFullName)</AssemblyName>
+		<RootNamespace>$(MyProjectFullName)</RootNamespace>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Modules\Storage.MongoDb\Storage.MongoDb.csproj" />
+    <ProjectReference Include="..\Core\Core.csproj" />
+  </ItemGroup>
+
+</Project>

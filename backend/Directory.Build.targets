@@ -1,10 +1,10 @@
 <Project>
   <!-- Versions -->
   <PropertyGroup>
-    <AspNetVersion>5.0.0</AspNetVersion>
+    <AspNetVersion>5.0.*</AspNetVersion>
     <IdentityServerVersion>4.1.1</IdentityServerVersion>
-    <MongoDbVersion>2.11.4</MongoDbVersion>
-    <MassTransitVersion>7.0.6</MassTransitVersion>
+    <MongoDbVersion>2.11.5</MongoDbVersion>
+    <MassTransitVersion>7.0.7</MassTransitVersion>
   </PropertyGroup>
 
   <!-- Packages : Code Analysis -->
@@ -34,6 +34,8 @@
     <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetVersion)" />
 
+
+    <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Update="System.ComponentModel.Annotations" Version="$(AspNetVersion)" />
@@ -59,13 +61,14 @@
     <PackageReference Update="AutoMapper" Version="10.0.0" />
     <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
 
-    <PackageReference Update="MinVer" Version="2.3.*" PrivateAssets="All" />
+    <PackageReference Update="MinVer" Version="2.4.*" PrivateAssets="All" />
 
     <PackageReference Update="Serilog.AspNetCore" Version="3.4.*" />
     <PackageReference Update="Ensure.That" Version="9.2.0" />
     <PackageReference Update="NodaTime" Version="3.0.*" />
     <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
     <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Update="CSharpFunctionalExtensions" Version="2.12.2" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.13.*" />
+    <PackageReference Update="WebMarkupMin.AspNetCore5" Version="2.9.*" />
   </ItemGroup>
 </Project>
