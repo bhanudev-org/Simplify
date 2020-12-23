@@ -8,9 +8,9 @@ using Simplify.SeedWork;
 using Simplify.SeedWork.Storage;
 using Simplify.Web.Models;
 
-namespace Simplify.Web.Controllers.Api.V1
+namespace Simplify.Web.Api.V1
 {
-    public class ArticlesController : BaseController
+    public class ArticlesController : ControllerBaseV1
     {
         private readonly ICommandDispatcher _dispatcher;
         private readonly ILogger<ArticlesController> _logger;
