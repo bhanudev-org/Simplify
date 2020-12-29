@@ -2,7 +2,7 @@ trailingComma: 'es5'
 tabWidth: 2
 semi: false
 singleQuote: true
-printWidth: 300
+printWidth: 200
 useTabs: false
 bracketSpacing: true
 arrowParens: 'avoid'
@@ -14,3 +14,7 @@ overrides:
           - '*.yaml'
       options:
           tabWidth: 4
+    - files:
+          - '*.html'
+      options:
+          printWidth: 500

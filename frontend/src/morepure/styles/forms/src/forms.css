@@ -1,0 +1,306 @@
+/*csslint box-model:false*/
+/*
+Box-model set to false because we're setting a height on select elements, which
+also have border and padding. This is done because some browsers don't render
+the padding. We explicitly set the box-model for select elements to border-box,
+so we can ignore the csslint warning.
+*/
+
+.mp-form input[type="text"],
+.mp-form input[type="password"],
+.mp-form input[type="email"],
+.mp-form input[type="url"],
+.mp-form input[type="date"],
+.mp-form input[type="month"],
+.mp-form input[type="time"],
+.mp-form input[type="datetime"],
+.mp-form input[type="datetime-local"],
+.mp-form input[type="week"],
+.mp-form input[type="number"],
+.mp-form input[type="search"],
+.mp-form input[type="tel"],
+.mp-form input[type="color"],
+.mp-form select,
+.mp-form textarea {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.mp-form input:not([type]) {
+    padding: 0.5em 0.6em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+/* Chrome (as of v.32/34 on OS X) needs additional room for color to display. */
+/* May be able to remove this tweak as color inputs become more standardized across browsers. */
+.mp-form input[type="color"] {
+    padding: 0.2em 0.5em;
+}
+
+
+.mp-form input[type="text"]:focus,
+.mp-form input[type="password"]:focus,
+.mp-form input[type="email"]:focus,
+.mp-form input[type="url"]:focus,
+.mp-form input[type="date"]:focus,
+.mp-form input[type="month"]:focus,
+.mp-form input[type="time"]:focus,
+.mp-form input[type="datetime"]:focus,
+.mp-form input[type="datetime-local"]:focus,
+.mp-form input[type="week"]:focus,
+.mp-form input[type="number"]:focus,
+.mp-form input[type="search"]:focus,
+.mp-form input[type="tel"]:focus,
+.mp-form input[type="color"]:focus,
+.mp-form select:focus,
+.mp-form textarea:focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.mp-form input:not([type]):focus {
+    outline: 0;
+    border-color: #129FEA;
+}
+
+.mp-form input[type="file"]:focus,
+.mp-form input[type="radio"]:focus,
+.mp-form input[type="checkbox"]:focus {
+    outline: thin solid #129FEA;
+    outline: 1px auto #129FEA;
+}
+.mp-form .mp-checkbox,
+.mp-form .mp-radio {
+    margin: 0.5em 0;
+    display: block;
+}
+
+.mp-form input[type="text"][disabled],
+.mp-form input[type="password"][disabled],
+.mp-form input[type="email"][disabled],
+.mp-form input[type="url"][disabled],
+.mp-form input[type="date"][disabled],
+.mp-form input[type="month"][disabled],
+.mp-form input[type="time"][disabled],
+.mp-form input[type="datetime"][disabled],
+.mp-form input[type="datetime-local"][disabled],
+.mp-form input[type="week"][disabled],
+.mp-form input[type="number"][disabled],
+.mp-form input[type="search"][disabled],
+.mp-form input[type="tel"][disabled],
+.mp-form input[type="color"][disabled],
+.mp-form select[disabled],
+.mp-form textarea[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.mp-form input:not([type])[disabled] {
+    cursor: not-allowed;
+    background-color: #eaeded;
+    color: #cad2d3;
+}
+.mp-form input[readonly],
+.mp-form select[readonly],
+.mp-form textarea[readonly] {
+    background-color: #eee; /* menu hover bg color */
+    color: #777; /* menu text color */
+    border-color: #ccc;
+}
+
+.mp-form input:focus:invalid,
+.mp-form textarea:focus:invalid,
+.mp-form select:focus:invalid {
+    color: #b94a48;
+    border-color: #e9322d;
+}
+.mp-form input[type="file"]:focus:invalid:focus,
+.mp-form input[type="radio"]:focus:invalid:focus,
+.mp-form input[type="checkbox"]:focus:invalid:focus {
+    outline-color: #e9322d;
+}
+.mp-form select {
+    /* Normalizes the height; padding is not sufficient. */
+    height: 2.25em;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+.mp-form select[multiple] {
+    height: auto;
+}
+.mp-form label {
+    margin: 0.5em 0 0.2em;
+}
+.mp-form fieldset {
+    margin: 0;
+    padding: 0.35em 0 0.75em;
+    border: 0;
+}
+.mp-form legend {
+    display: block;
+    width: 100%;
+    padding: 0.3em 0;
+    margin-bottom: 0.3em;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.mp-form-stacked input[type="text"],
+.mp-form-stacked input[type="password"],
+.mp-form-stacked input[type="email"],
+.mp-form-stacked input[type="url"],
+.mp-form-stacked input[type="date"],
+.mp-form-stacked input[type="month"],
+.mp-form-stacked input[type="time"],
+.mp-form-stacked input[type="datetime"],
+.mp-form-stacked input[type="datetime-local"],
+.mp-form-stacked input[type="week"],
+.mp-form-stacked input[type="number"],
+.mp-form-stacked input[type="search"],
+.mp-form-stacked input[type="tel"],
+.mp-form-stacked input[type="color"],
+.mp-form-stacked input[type="file"],
+.mp-form-stacked select,
+.mp-form-stacked label,
+.mp-form-stacked textarea {
+    display: block;
+    margin: 0.25em 0;
+}
+
+/*
+Need to separate out the :not() selector from the rest of the CSS 2.1 selectors
+since IE8 won't execute CSS that contains a CSS3 selector.
+*/
+.mp-form-stacked input:not([type]) {
+    display: block;
+    margin: 0.25em 0;
+}
+.mp-form-aligned input,
+.mp-form-aligned textarea,
+.mp-form-aligned select,
+.mp-form-message-inline {
+    display: inline-block;
+    vertical-align: middle;
+}
+.mp-form-aligned textarea {
+    vertical-align: top;
+}
+
+/* Aligned Forms */
+.mp-form-aligned .mp-control-group {
+    margin-bottom: 0.5em;
+}
+.mp-form-aligned .mp-control-group label {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 10em;
+    margin: 0 1em 0 0;
+}
+.mp-form-aligned .mp-controls {
+    margin: 1.5em 0 0 11em;
+}
+
+/* Rounded Inputs */
+.mp-form input.mp-input-rounded,
+.mp-form .mp-input-rounded {
+    border-radius: 2em;
+    padding: 0.5em 1em;
+}
+
+/* Grouped Inputs */
+.mp-form .mp-group fieldset {
+    margin-bottom: 10px;
+}
+.mp-form .mp-group input,
+.mp-form .mp-group textarea {
+    display: block;
+    padding: 10px;
+    margin: 0 0 -1px;
+    border-radius: 0;
+    position: relative;
+    top: -1px;
+}
+.mp-form .mp-group input:focus,
+.mp-form .mp-group textarea:focus {
+    z-index: 3;
+}
+.mp-form .mp-group input:first-child,
+.mp-form .mp-group textarea:first-child {
+    top: 1px;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+}
+.mp-form .mp-group input:first-child:last-child,
+.mp-form .mp-group textarea:first-child:last-child {
+    top: 1px;
+    border-radius: 4px;
+    margin: 0;
+}
+.mp-form .mp-group input:last-child,
+.mp-form .mp-group textarea:last-child {
+    top: -2px;
+    border-radius: 0 0 4px 4px;
+    margin: 0;
+}
+.mp-form .mp-group button {
+    margin: 0.35em 0;
+}
+
+.mp-form .mp-input-1 {
+    width: 100%;
+}
+.mp-form .mp-input-3-4 {
+    width: 75%;
+}
+.mp-form .mp-input-2-3 {
+    width: 66%;
+}
+.mp-form .mp-input-1-2 {
+    width: 50%;
+}
+.mp-form .mp-input-1-3 {
+    width: 33%;
+}
+.mp-form .mp-input-1-4 {
+    width: 25%;
+}
+
+/* Inline help for forms */
+.mp-form-message-inline {
+    display: inline-block;
+    padding-left: 0.3em;
+    color: #666;
+    vertical-align: middle;
+    font-size: 0.875em;
+}
+
+/* Block help for forms */
+.mp-form-message {
+    display: block;
+    color: #666;
+    font-size: 0.875em;
+}
