@@ -3,6 +3,8 @@ module.exports = ctx => ({
     plugins: {
         'postcss-import':{},
         'postcss-preset-env': { stage: 1 },
-        'postcss-csso':{}
+        'postcss-csso':{
+            comments:false
+        }
     },
 })

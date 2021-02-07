@@ -11,7 +11,7 @@ import postcss = require('gulp-postcss')
 import rename = require('gulp-rename')
 
 var bsServer = browserSync.create()
-const minHeader = `/* Compiled on ${new Date().toUTCString()} */`
+const minHeader = `/* Compiled on ${new Date().toUTCString()} */ \n`
 
 var paths = {
   styles: {
