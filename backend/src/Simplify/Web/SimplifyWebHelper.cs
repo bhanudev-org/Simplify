@@ -21,7 +21,7 @@ namespace Simplify.Web
 
         public static string GetDescription(this Enum value)
         {
-            Type type = value.GetType();
+            var type = value.GetType();
             var name = Enum.GetName(type, value);
             if(name != null)
             {

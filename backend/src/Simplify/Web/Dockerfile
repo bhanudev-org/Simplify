@@ -6,7 +6,7 @@ WORKDIR /code
 COPY / .
 WORKDIR /code/src/Simplify/Web
 RUN dotnet build Web.csproj -c Release -o /app/build
-RUN dotnet publish Web.csproj -c Release -o /app/publish -f net5.0 -p:version=$BUILD__VERSION
+RUN dotnet publish Web.csproj -c Release -o /app/publish -f net6.0 -p:version=$BUILD__VERSION
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app

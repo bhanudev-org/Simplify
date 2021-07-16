@@ -26,4 +26,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Simplify\Web\Web.csproj" />
+  </ItemGroup>
+
 </Project>
