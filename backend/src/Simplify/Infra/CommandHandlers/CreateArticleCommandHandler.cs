@@ -1,15 +1,15 @@
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using Simplify.Core.ArticleAggregate;
 using Simplify.Core.ArticleAggregate.Commands;
 using Simplify.Core.ArticleAggregate.Responses;
 using Simplify.Infrastructure.Storage;
-using Simplify.SeedWork;
 
 namespace Simplify.Infrastructure.CommandHandlers
 {
-    public class CreateArticleCommandHandler : ICommandHandler<CreateArticleCommand,ArticleCreatedResponse>
+    public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand, ArticleCreatedResponse>
     {
         private readonly IArticleRepository _articleRepository;
         private readonly ILogger<CreateArticleCommandHandler> _logger;
@@ -19,7 +19,7 @@ namespace Simplify.Infrastructure.CommandHandlers
             _articleRepository = articleRepository;
             _logger = logger;
         }
-        
+
         public async Task<ArticleCreatedResponse> Handle(CreateArticleCommand request, CancellationToken cancellationToken)
         {
             _logger.LogDebug("Command Called");
@@ -34,7 +34,7 @@ namespace Simplify.Infrastructure.CommandHandlers
                 {
                     var stored = await _articleRepository.CreateAsync(article.Value, cancellationToken);
 
-                    result.Updated(stored.Id,true);
+                    result.Updated(stored.Id, true);
                     return result;
                 }
 

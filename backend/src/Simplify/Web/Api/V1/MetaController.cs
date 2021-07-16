@@ -1,6 +1,6 @@
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Simplify.SeedWork;
 using Simplify.Web.Models;
 
 namespace Simplify.Web.Api.V1
@@ -8,12 +8,12 @@ namespace Simplify.Web.Api.V1
     public class MetaController : ControllerBaseV1
     {
         private readonly ILogger<MetaController> _logger;
-        private readonly ICommandDispatcher _dispatcher;
+        private readonly IMediator _mediator;
 
-        public MetaController(ILogger<MetaController> logger, ICommandDispatcher dispatcher)
+        public MetaController(ILogger<MetaController> logger, IMediator mediator)
         {
             _logger = logger;
-            _dispatcher = dispatcher;
+            _mediator = mediator;
         }
 
         public IActionResult Get()

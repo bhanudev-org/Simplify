@@ -13,13 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Net.Http.Headers;
-using Serilog;
 using Simplify.Infrastructure;
 using Simplify.SeedWork;
 using Simplify.Storage.MongoDb;
 using Simplify.Web.Data;
-using WebMarkupMin.AspNetCore5;
-using WebMarkupMin.Core;
 
 namespace Simplify.Web
 {
@@ -33,7 +30,6 @@ namespace Simplify.Web
         public void ConfigureServices(IServiceCollection services)
         {
             #region Generic Options
-
             services.Configure<RouteOptions>(options =>
             {
                 options.AppendTrailingSlash = false;
@@ -60,23 +56,6 @@ namespace Simplify.Web
                 options.Providers.Add<GzipCompressionProvider>();
                 options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] {"application/xhtml+xml", "application/atom+xml", "image/svg+xml"});
             });
-
-            services.AddWebMarkupMin(options =>
-                {
-                    options.AllowCompressionInDevelopmentEnvironment = true;
-                    options.AllowMinificationInDevelopmentEnvironment = true;
-                    options.DisablePoweredByHttpHeaders = true;
-                })
-                .AddHtmlMinification(options =>
-                {
-                    var settings = options.MinificationSettings;
-                    settings.RemoveRedundantAttributes = true;
-                    settings.WhitespaceMinificationMode = WhitespaceMinificationMode.Aggressive;
-                    settings.RemoveHtmlComments = true;
-                    settings.RemoveHtmlCommentsFromScriptsAndStyles = true;
-                })
-                .AddHttpCompression();
-
             #endregion
 
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
@@ -109,8 +88,7 @@ namespace Simplify.Web
                 app.UseHttpsRedirection();
                 app.UseHsts();
             }
-
-            app.UseSerilogRequestLogging();
+            app.UseHttpLogging();
             app.UseResponseCompression();
             app.UseStaticFiles();
 

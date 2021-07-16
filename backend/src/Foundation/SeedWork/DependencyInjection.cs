@@ -11,8 +11,6 @@ namespace Simplify.SeedWork
 
         public static ISimplifyBuilder AddCommands(this ISimplifyBuilder builder, params Assembly[] assemblies)
         {
-            builder.Services.AddSingleton<ICommandDispatcher, CommandDispatcher>();
-
             builder.Services.AddMediatR(assemblies);
 
             return builder;

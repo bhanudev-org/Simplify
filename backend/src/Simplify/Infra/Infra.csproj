@@ -11,10 +11,6 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MassTransit.Extensions.DependencyInjection" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Modules\Storage.MongoDb\Storage.MongoDb.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>

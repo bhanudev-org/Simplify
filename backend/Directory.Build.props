@@ -4,6 +4,7 @@
     <AnalysisLevel>latest</AnalysisLevel>
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
 
     <Authors>Bhanu Prakash Korthiwada</Authors>
     <Copyright>Copyright © Simplify</Copyright>
@@ -34,9 +35,9 @@
 
   <!-- Target Frameworks -->
   <PropertyGroup>
-    <ApplicationTargetFramework>net5.0</ApplicationTargetFramework>
+    <ApplicationTargetFramework>net6.0</ApplicationTargetFramework>
     <LibraryTargetFramework>net5.0</LibraryTargetFramework>
-    <LibraryTargetFrameworks>netcoreapp3.1;net5.0</LibraryTargetFrameworks>
+    <LibraryTargetFrameworks>netcoreapp3.1;net5.0;net6.0</LibraryTargetFrameworks>
     <LibraryTargetFrameworksAll>netstandard2.0;netstandard2.1;netcoreapp3.1;net5.0</LibraryTargetFrameworksAll>
   </PropertyGroup>
 

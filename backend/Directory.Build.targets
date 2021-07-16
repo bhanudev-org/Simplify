@@ -1,10 +1,9 @@
 <Project>
   <!-- Versions -->
   <PropertyGroup>
-    <AspNetVersion>5.0.*</AspNetVersion>
-    <IdentityServerVersion>4.1.1</IdentityServerVersion>
-    <MongoDbVersion>2.11.5</MongoDbVersion>
-    <MassTransitVersion>7.0.7</MassTransitVersion>
+    <AspNetVersion>6.0.0-preview.*</AspNetVersion>
+    <MongoDbVersion>2.13.0</MongoDbVersion>
+    <MassTransitVersion>7.2.*</MassTransitVersion>
   </PropertyGroup>
 
   <!-- Packages : Code Analysis -->
@@ -34,7 +33,6 @@
     <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetVersion)" />
 
-
     <PackageReference Update="Microsoft.CodeAnalysis.NetAnalyzers" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.DependencyValidation.Analyzers" Version="0.11.0" />
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
@@ -43,9 +41,6 @@
 
   <!-- Packages : Third Party -->
   <ItemGroup>
-    <PackageReference Update="IdentityServer4" Version="$(IdentityServerVersion)" />
-    <PackageReference Update="IdentityServer4.AspNetIdentity" Version="$(IdentityServerVersion)" />
-
     <PackageReference Update="MediatR" Version="9.0.0" />
     <PackageReference Update="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
 
@@ -61,14 +56,14 @@
     <PackageReference Update="AutoMapper" Version="10.0.0" />
     <PackageReference Update="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
 
-    <PackageReference Update="MinVer" Version="2.4.*" PrivateAssets="All" />
+    <PackageReference Update="MinVer" Version="2.5.*" PrivateAssets="All" />
 
-    <PackageReference Update="Serilog.AspNetCore" Version="3.4.*" />
+    <PackageReference Update="Serilog.AspNetCore" Version="4.1.*" />
     <PackageReference Update="Ensure.That" Version="9.2.0" />
     <PackageReference Update="NodaTime" Version="3.0.*" />
     <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
     <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Update="CSharpFunctionalExtensions" Version="2.13.*" />
-    <PackageReference Update="WebMarkupMin.AspNetCore5" Version="2.9.*" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.17.*" />
+    <PackageReference Update="WebMarkupMin.AspNetCore5" Version="2.10.*" />
   </ItemGroup>
 </Project>
