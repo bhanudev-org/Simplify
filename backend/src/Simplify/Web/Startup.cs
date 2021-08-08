@@ -1,21 +1,15 @@
 using System.IO.Compression;
-using System.Linq;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using Microsoft.Net.Http.Headers;
 using Simplify.Infrastructure;
-using Simplify.SeedWork;
 using Simplify.Storage.MongoDb;
 
 namespace Simplify.Web
@@ -54,7 +48,7 @@ namespace Simplify.Web
             {
                 options.Providers.Add<BrotliCompressionProvider>();
                 options.Providers.Add<GzipCompressionProvider>();
-                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] {"application/xhtml+xml", "application/atom+xml", "image/svg+xml"});
+                options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/xhtml+xml", "application/atom+xml", "image/svg+xml" });
             });
             #endregion
 

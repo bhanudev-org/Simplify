@@ -2,7 +2,7 @@
   <!-- Versions -->
   <PropertyGroup>
     <AspNetVersion>6.0.0-preview.*</AspNetVersion>
-    <MongoDbVersion>2.13.0</MongoDbVersion>
+    <MongoDbVersion>2.13.1</MongoDbVersion>
     <MassTransitVersion>7.2.*</MassTransitVersion>
   </PropertyGroup>
 
@@ -33,6 +33,7 @@
     <PackageReference Update="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.Extensions.Identity.Stores" Version="$(AspNetVersion)" />
 
+    <PackageReference Update="Microsoft.EntityFrameworkCore.SqlServer" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.EntityFrameworkCore.Sqlite" Version="$(AspNetVersion)" />
     <PackageReference Update="Microsoft.EntityFrameworkCore.Tools" Version="$(AspNetVersion)" />
 
@@ -41,8 +42,8 @@
     <PackageReference Update="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Update="System.ComponentModel.Annotations" Version="$(AspNetVersion)" />
 
-    <PackageReference Update="Microsoft.Identity.Web" Version="1.14.*" />
-    <PackageReference Update="Microsoft.Identity.Web.UI" Version="1.14.*" />
+    <PackageReference Update="Microsoft.Identity.Web" Version="1.15.*" />
+    <PackageReference Update="Microsoft.Identity.Web.UI" Version="1.15.*" />
   </ItemGroup>
 
   <!-- Packages : Third Party -->
@@ -69,7 +70,7 @@
     <PackageReference Update="NodaTime" Version="3.0.*" />
     <PackageReference Update="BCrypt.Net-Next" Version="3.2.*" />
     <PackageReference Update="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Update="CSharpFunctionalExtensions" Version="2.17.*" />
+    <PackageReference Update="CSharpFunctionalExtensions" Version="2.18.*" />
     <PackageReference Update="WebMarkupMin.AspNetCore5" Version="2.10.*" />
   </ItemGroup>
 </Project>

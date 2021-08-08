@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>$(LibraryTargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<MyProjectName>Storage.MongoDb</MyProjectName>
+		<MyProjectFullName>$(MyProjectPrefix).$(MyProjectName)</MyProjectFullName>
+		<AssemblyName>$(MyProjectFullName)</AssemblyName>
+		<RootNamespace>$(MyProjectFullName)</RootNamespace>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver.GridFS" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\01_Foundation\SeedWork\SeedWork.csproj" />
+  </ItemGroup>
+
+</Project>

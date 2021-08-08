@@ -11,6 +11,6 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Foundation\SeedWork\SeedWork.csproj" />
+    <ProjectReference Include="..\..\01_Foundation\SeedWork\SeedWork.csproj" />
   </ItemGroup>
 </Project>

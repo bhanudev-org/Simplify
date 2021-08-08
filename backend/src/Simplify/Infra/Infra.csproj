@@ -11,7 +11,7 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modules\Storage.MongoDb\Storage.MongoDb.csproj" />
+    <ProjectReference Include="..\..\02_Modules\Storage.MongoDb\Storage.MongoDb.csproj" />
     <ProjectReference Include="..\Core\Core.csproj" />
   </ItemGroup>
 

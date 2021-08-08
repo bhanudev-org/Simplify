@@ -1,7 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using Simplify.Web.Models;
-
 namespace Simplify.Web.Api.V2
 {
     public class MetaController : ControllerBaseV2

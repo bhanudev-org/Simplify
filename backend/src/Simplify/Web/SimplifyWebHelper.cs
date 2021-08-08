@@ -1,9 +1,6 @@
-using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Security.Cryptography;
-using System.Text;
-using Simplify.SeedWork;
 
 namespace Simplify.Web
 {

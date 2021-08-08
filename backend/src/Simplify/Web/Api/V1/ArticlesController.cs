@@ -1,8 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Simplify.Core.ArticleAggregate;
 using Simplify.Core.ArticleAggregate.Commands;
 using Simplify.SeedWork.Storage;
@@ -16,7 +11,7 @@ namespace Simplify.Web.Api.V1
         private readonly ILogger<ArticlesController> _logger;
         private readonly IQueryStore<Article> _queries;
 
-        public ArticlesController(ILogger<ArticlesController> logger, IMediator mediator ,IQueryStore<Article> queries)
+        public ArticlesController(ILogger<ArticlesController> logger, IMediator mediator, IQueryStore<Article> queries)
         {
             _logger = logger;
             _mediator = mediator;
