@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using MoreLinq;
@@ -49,7 +47,7 @@ namespace Simplify.Feature.Identity
 
         internal string GetToken(string loginProvider, string name) => Tokens.FirstOrDefault(t => t.LoginProvider == loginProvider && t.Name == name)?.Value ?? string.Empty;
 
-        internal void AddToken(string loginProvider, string name, string value) => Tokens.Add(new IdentityUserToken<Guid> {LoginProvider = loginProvider, Name = name, Value = value});
+        internal void AddToken(string loginProvider, string name, string value) => Tokens.Add(new IdentityUserToken<Guid> { LoginProvider = loginProvider, Name = name, Value = value });
 
         internal void SetToken(string loginProvider, string name, string value)
         {

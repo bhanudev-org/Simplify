@@ -1,4 +1,3 @@
-using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using CSharpFunctionalExtensions;
@@ -40,11 +39,11 @@ namespace Simplify.SeedWork
                     return match.Groups[1].Value + domainName;
                 }
             }
-            catch (RegexMatchTimeoutException)
+            catch(RegexMatchTimeoutException)
             {
                 return defaultError;
             }
-            catch (ArgumentException)
+            catch(ArgumentException)
             {
                 return defaultError;
             }

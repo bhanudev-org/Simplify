@@ -1,7 +1,5 @@
-using System;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Simplify.SeedWork;
 
 namespace Simplify.Storage.MongoDb
 {

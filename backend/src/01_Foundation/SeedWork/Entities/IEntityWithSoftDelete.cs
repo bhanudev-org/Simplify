@@ -1,4 +1,3 @@
-using System;
 using NodaTime;
 
 namespace Simplify.SeedWork.Entities

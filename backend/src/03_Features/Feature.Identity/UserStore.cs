@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
@@ -92,7 +89,7 @@ namespace Simplify.Feature.Identity
 
         public async Task<IdentityResult> UpdateAsync(User user, CancellationToken cancellationToken)
         {
-            await Collection.ReplaceOneAsync(p => p.Id == user.Id, user, new ReplaceOptions {IsUpsert = false}, cancellationToken);
+            await Collection.ReplaceOneAsync(p => p.Id == user.Id, user, new ReplaceOptions { IsUpsert = false }, cancellationToken);
             return IdentityResult.Success;
         }
 

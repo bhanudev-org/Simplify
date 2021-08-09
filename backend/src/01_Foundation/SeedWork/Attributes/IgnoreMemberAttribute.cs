@@ -1,5 +1,3 @@
-using System;
-
 namespace Simplify.SeedWork.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
