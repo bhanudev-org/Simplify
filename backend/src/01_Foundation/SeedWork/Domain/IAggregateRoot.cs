@@ -16,4 +16,17 @@ namespace Simplify.SeedWork.Domain
 
         void RemoveDomainEvent(IDomainEvent domainEvent);
     }
+
+    public interface IAggregateRoot<T> : IEntity
+    {
+        T Id { get; }
+
+        IReadOnlyList<IDomainEvent> DomainEvents();
+
+        void ClearDomainEvents();
+
+        void AddDomainEvent(IDomainEvent domainEvent);
+
+        void RemoveDomainEvent(IDomainEvent domainEvent);
+    }
 }

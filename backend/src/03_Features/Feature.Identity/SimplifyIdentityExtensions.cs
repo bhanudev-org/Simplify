@@ -4,7 +4,7 @@ namespace Simplify.Feature.Identity
     {
         public static class ClaimTypes
         {
-            public const string AuroraDisplayName = "urn:simplify:displayname";
+            public const string SimplifyDisplayName = "urn:simplify:displayname";
         }
 
         public static class Constants

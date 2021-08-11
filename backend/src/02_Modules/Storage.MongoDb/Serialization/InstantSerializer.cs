@@ -2,8 +2,22 @@ using NodaTime.Text;
 
 namespace Simplify.Storage.MongoDb.Serialization
 {
-    public class InstantSerializer : SerializerBase<Instant>
+    public class InstantSerializer : SerializerBase<Instant>, IBsonPolymorphicSerializer
     {
+        public static void Register()
+        {
+            try
+            {
+                BsonSerializer.RegisterSerializer(new InstantSerializer());
+            }
+            catch(BsonSerializationException)
+            {
+                return;
+            }
+        }
+
+        public bool IsDiscriminatorCompatibleWithObjectSerializer => true;
+
         public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, Instant value) =>
             context.Writer.WriteDateTime(value.ToUnixTimeMilliseconds());
 

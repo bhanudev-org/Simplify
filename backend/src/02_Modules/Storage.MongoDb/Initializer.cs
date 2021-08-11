@@ -10,7 +10,9 @@ namespace Simplify.Storage.MongoDb
 
             BsonSerializer.RegisterIdGenerator(typeof(Guid), GuidGenerator.Instance);
             BsonSerializer.RegisterSerializer(typeof(Guid), new GuidSerializer(GuidRepresentation.Standard));
-            BsonSerializer.RegisterSerializer(typeof(Instant), new InstantSerializer());
+            // BsonSerializer.RegisterSerializer(typeof(Guid), new GuidSerializer(BsonType.String));
+
+            InstantSerializer.Register();
 
             ConventionRegistry.Register("CamelCase", new ConventionPack { new CamelCaseElementNameConvention() }, t => true);
             ConventionRegistry.Register("IgnoreIfDefault", new ConventionPack { new IgnoreIfDefaultConvention(true) }, t => true);

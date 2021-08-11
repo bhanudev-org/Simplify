@@ -1,0 +1,27 @@
+version: '3.7'
+
+services:
+    mongodb:
+        image: mongo:5.0.2-focal
+        container_name: ${DOCKER_ENVIRONMENT}_mongo
+        restart: unless-stopped
+        command: --auth --directoryperdb --wiredTigerJournalCompressor zstd --wiredTigerCollectionBlockCompressor zstd --timeStampFormat iso8601-utc
+        environment:
+            MONGO_INITDB_DATABASE: ${MONGODB_INITDB_DATABASE}
+            MONGO_INITDB_ROOT_USERNAME: ${MONGODB_INITDB_ROOT_USERNAME}
+            MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_INITDB_ROOT_PASSWORD}
+        ports:
+            - 27017:27017
+        volumes:
+            - vol_mongodb:/data/db
+        networks:
+            - default
+
+networks:
+    default:
+        name: ${DOCKER_ENVIRONMENT}_network_default
+        driver: bridge
+
+volumes:
+    vol_mongodb:
+        name: data_mongo

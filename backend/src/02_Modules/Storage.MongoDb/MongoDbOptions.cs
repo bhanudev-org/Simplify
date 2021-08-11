@@ -4,7 +4,7 @@ namespace Simplify.Storage.MongoDb
 {
     public class MongoDbOptions
     {
-        public const string MongoDb = "Storage:MongoDB";
+        public const string ConfigurationSectionKey = "Storage:MongoDb";
 
         public MongoDbOptions()
         {

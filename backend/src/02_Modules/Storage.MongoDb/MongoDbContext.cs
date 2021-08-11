@@ -8,8 +8,6 @@ namespace Simplify.Storage.MongoDb
         {
             var optionsValue = options.Value;
 
-            Guard.NotNull(optionsValue);
-
             Guard.NotNull(optionsValue, "MongoDB Options cannot be NULL.");
             Guard.NotNull(optionsValue.ConnectionString, "MongoDB Connection String in Options cannot be NULL.");
 
@@ -24,7 +22,6 @@ namespace Simplify.Storage.MongoDb
             Database = Client.GetDatabase(databaseName, optionsValue.DatabaseSettings);
             SeedingEnabled = optionsValue.SeedingEnabled;
         }
-
 
         public IMongoDatabase Database { get; set; }
         public IMongoClient Client { get; set; }

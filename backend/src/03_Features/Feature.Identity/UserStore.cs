@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using Simplify.SeedWork.Extensions;
 using Simplify.Storage.MongoDb;
@@ -28,7 +32,70 @@ namespace Simplify.Feature.Identity
         private const string _authenticatorKeyTokenName = "AuthenticatorKey";
         private const string _recoveryCodeTokenName = "RecoveryCodes";
 
-        public UserStore(ILogger<MongoDbCollectionBase<User>> logger, IMongoDbContext mongoContext) : base(logger, mongoContext) { }
+        static UserStore()
+        {
+            BsonClassMap.RegisterClassMap<Claim>(cm =>
+            {
+                cm.MapConstructor(typeof(Claim).GetConstructors()
+                    .First(x =>
+                    {
+                        var parameters = x.GetParameters();
+
+                        return parameters.Length == 2 &&
+                            parameters[0].Name == "type" &&
+                            parameters[0].ParameterType == typeof(string) &&
+                            parameters[1].Name == "value" &&
+                            parameters[1].ParameterType == typeof(string);
+                    }))
+                    .SetArguments(new[]
+                    {
+                        nameof(Claim.Type),
+                        nameof(Claim.Value)
+                    });
+
+                cm.MapMember(x => x.Type);
+                cm.MapMember(x => x.Value);
+            });
+
+            BsonClassMap.RegisterClassMap<UserLoginInfo>(cm =>
+            {
+                cm.MapConstructor(typeof(UserLoginInfo).GetConstructors()
+                    .First(x =>
+                    {
+                        var parameters = x.GetParameters();
+
+                        return parameters.Length == 3;
+                    }))
+                    .SetArguments(new[]
+                    {
+                        nameof(UserLoginInfo.LoginProvider),
+                        nameof(UserLoginInfo.ProviderKey),
+                        nameof(UserLoginInfo.ProviderDisplayName)
+                    });
+
+                cm.AutoMap();
+            });
+
+            BsonClassMap.RegisterClassMap<IdentityUserToken<string>>(cm =>
+            {
+                cm.AutoMap();
+
+                cm.UnmapMember(x => x.UserId);
+            });
+
+            BsonClassMap.RegisterClassMap<IdentityUser<Guid>>(cm =>
+            {
+                cm.AutoMap();
+
+                cm.MapIdProperty(w => w.Id)
+                    .SetSerializer(new GuidSerializer(BsonType.String));
+
+                cm.MapMember(x => x.LockoutEnd)
+                    .SetElementName("LockoutEndDateUtc");
+            });
+        }
+
+        public UserStore(ILogger<MongoDbCollectionBase<User>> logger, IMongoDbContext mongoContext) : base(logger, mongoContext, true) { }
 
         public IQueryable<User> Users => Collection.AsQueryable();
 
@@ -100,8 +167,10 @@ namespace Simplify.Feature.Identity
             return IdentityResult.Success;
         }
 
-        public async Task<User> FindByIdAsync(string userId, CancellationToken cancellationToken) => await Collection.Find(userId).FirstOrDefaultAsync(cancellationToken);
-
+        public async Task<User> FindByIdAsync(string userId, CancellationToken cancellationToken)
+        {
+            return await Collection.Find(p => p.Id == Guid.Parse(userId)).FirstOrDefaultAsync(cancellationToken);
+        }
         public async Task<User> FindByNameAsync(string normalizedUserName, CancellationToken cancellationToken) => await Collection.Find(p => p.NormalizedUserName == normalizedUserName).FirstOrDefaultAsync(cancellationToken);
 
         public Task<IList<Claim>> GetClaimsAsync(User user, CancellationToken cancellationToken) => Task.FromResult<IList<Claim>>(user.Claims.Where(q => !q.Value.IsNullOrWhiteSpace()).ToList());
@@ -295,5 +364,7 @@ namespace Simplify.Feature.Identity
 
             return await base.SeedDataAsync(ct);
         }
+
+        protected override string CollectionName() => "identityUsers";
     }
 }

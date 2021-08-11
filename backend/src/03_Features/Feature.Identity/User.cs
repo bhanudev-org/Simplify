@@ -1,6 +1,7 @@
-using System.Collections.Generic;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using MoreLinq;
 using Simplify.SeedWork.Domain;
 using Simplify.SeedWork.Events;
@@ -10,14 +11,43 @@ namespace Simplify.Feature.Identity
     public class User : IdentityUser<Guid>, IAggregateRoot
     {
         #region Custom Properties
+        [BsonElement("fn")]
+        public string? FirstName { get; set; }
 
-        public Guid TenantId { get; set; }
-        public string CustomData { get; set; } = null!;
-        public List<Claim> Claims { get; set; } = new List<Claim>();
-        public List<IdentityUserToken<Guid>> Tokens { get; set; } = new List<IdentityUserToken<Guid>>();
-        public List<UserLoginInfo> Logins { get; set; } = new List<UserLoginInfo>();
-        public HashSet<string> Roles { get; set; } = new HashSet<string>();
+        [BsonElement("ln")]
+        public string? LastName { get; set; }
 
+        [BsonElement("dn")]
+        public string DisplayName { get; set; } = string.Empty;
+
+        [BsonElement("dob")]
+        public DateOnly DateOfBirth { get; set; }
+
+        [BsonElement("country")]
+        public string? Country { get; set; }
+
+        [BsonRequired]
+        [BsonElement("claims")]
+        public List<Claim> Claims { get; set; } = new();
+
+        [BsonRequired]
+        [BsonElement("tokens")]
+        public List<IdentityUserToken<Guid>> Tokens { get; set; } = new();
+
+        [BsonRequired]
+        [BsonElement("logins")]
+        public List<UserLoginInfo> Logins { get; set; } = new();
+
+        [BsonRequired]
+        [BsonElement("roles")]
+        public HashSet<string> Roles { get; set; } = new();
+
+        [BsonElement("customData")]
+        public string? CustomData { get; set; }
+
+        [BsonExtraElements]
+        [BsonElement("extras")]
+        public BsonDocument? Extras { get; set; }
         #endregion
 
         #region Helper Methods
@@ -61,7 +91,7 @@ namespace Simplify.Feature.Identity
         #endregion
 
 
-        #region Aggregate Events
+        #region Events
 
         private readonly List<IDomainEvent> _domainEvents = new List<IDomainEvent>();
         public void AddDomainEvent(IDomainEvent domainEvent) => _domainEvents.Add(domainEvent);

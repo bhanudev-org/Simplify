@@ -13,7 +13,7 @@ namespace Simplify.Storage.MongoDb
 
         Task ClearAsync(CancellationToken ct = default);
 
-        Task InitializeAsync(CancellationToken ct = default);
+        Task InitializeAsync(bool SeedData = true,CancellationToken ct = default);
 
         Task<bool> DropCollectionIfExistsAsync(CancellationToken ct = default);
 

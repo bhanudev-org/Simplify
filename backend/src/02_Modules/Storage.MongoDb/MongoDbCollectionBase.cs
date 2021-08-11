@@ -30,31 +30,34 @@ namespace Simplify.Storage.MongoDb
         protected static readonly FindOptions<TMongoDbEntity> UseFind = new FindOptions<TMongoDbEntity>();
 
         private readonly ILogger<MongoDbCollectionBase<TMongoDbEntity>> _logger;
-        private Lazy<IMongoCollection<TMongoDbEntity>> _collection;
+        private IMongoCollection<TMongoDbEntity>? _collection;
 
-        protected MongoDbCollectionBase(ILogger<MongoDbCollectionBase<TMongoDbEntity>> logger, IMongoDbContext mongoContext)
+        protected MongoDbCollectionBase(ILogger<MongoDbCollectionBase<TMongoDbEntity>> logger, IMongoDbContext mongoContext, bool initialize = false)
         {
             _logger = logger;
             DbContext = mongoContext;
-            _collection = CreateCollection();
-            _ = InitializeAsync();
+            if(initialize)
+            {
+                InitializeAsync().Wait();
+            }
         }
 
         protected IMongoDbContext DbContext { get; }
-        protected IMongoCollection<TMongoDbEntity> Collection => _collection.Value;
+        protected IMongoCollection<TMongoDbEntity> Collection => _collection ?? throw new InvalidOperationException("Collection is not initialized.");
 
         IMongoCollection<TMongoDbEntity> IMongoDbRepository<TMongoDbEntity>.Collection => Collection;
 
         public IMongoQueryable<TMongoDbEntity> Query => Collection.AsQueryable();
 
-        public async Task InitializeAsync(CancellationToken ct = default)
+        public async Task InitializeAsync(bool SeedData = true, CancellationToken ct = default)
         {
             try
             {
+                CreateCollection();
                 _logger.LogDebug($"Setup Collection - {CollectionName()}");
                 await SetupCollectionAsync(ct);
                 _logger.LogDebug("Setup Collection - Completed");
-                if(DbContext.SeedingEnabled)
+                if(DbContext.SeedingEnabled && SeedData)
                 {
                     _logger.LogDebug("Collection - Seed data is enabled");
                     var count = await Query.CountAsync(ct);
@@ -78,7 +81,7 @@ namespace Simplify.Storage.MongoDb
         {
             await DbContext.Database.DropCollectionAsync(CollectionName(), ct);
 
-            await SetupCollectionAsync(ct);
+            await InitializeAsync(false, ct);
         }
 
         public async Task<bool> DropCollectionIfExistsAsync(CancellationToken ct = default)
@@ -90,7 +93,7 @@ namespace Simplify.Storage.MongoDb
                 await DbContext.Database.DropCollectionAsync(CollectionName(), ct);
 
                 _logger.LogWarning("Create Collection - {collectionName}", collectionName);
-                _collection = CreateCollection();
+                CreateCollection();
 
                 _logger.LogWarning("Setup Collection - {collectionName}", collectionName);
                 await SetupCollectionAsync(ct);
@@ -142,7 +145,10 @@ namespace Simplify.Storage.MongoDb
             return Task.CompletedTask;
         }
 
-        private Lazy<IMongoCollection<TMongoDbEntity>> CreateCollection() => new Lazy<IMongoCollection<TMongoDbEntity>>(() => DbContext.Database.GetCollection<TMongoDbEntity>(CollectionName(), CollectionSettings()));
+        private void CreateCollection()
+        {
+            _collection = DbContext.Database.GetCollection<TMongoDbEntity>(CollectionName(), CollectionSettings());
+        }
 
         public virtual Task<bool> SeedDataAsync(CancellationToken ct = default) => Task.FromResult(true);
 

@@ -11,6 +11,25 @@ namespace Simplify.Storage.MongoDb
         public new Guid Id { get; set; }
 
         [BsonIgnoreIfDefault]
+        [BsonElement("tid", Order = 2)]
+        public Guid TenantId { get; set; }
+
+#if NET6_0_OR_GREATER
+        [BsonIgnoreIfDefault]
+        [BsonElement("dob")]
+        public DateOnly DateOfBirth { get; set; }
+#else
+        [BsonIgnoreIfDefault]
+        [BsonElement("dob")]
+        public DateTime DateOfBirth { get; set; }
+#endif
+
+        [BsonIgnoreIfDefault]
+        [BsonExtraElements]
+        [BsonElement("extras")]
+        public BsonDocument? Extras { get; set; }
+
+        [BsonIgnoreIfDefault]
         [BsonElement("cby")]
         public Guid CreatedById { get; set; }
 
@@ -26,11 +45,9 @@ namespace Simplify.Storage.MongoDb
         [BsonElement("mon")]
         public Instant LastModifiedOn { get; set; }
 
-
         [BsonIgnoreIfDefault]
         [BsonElement("del")]
         public bool IsDeleted { get; set; }
-
 
         [BsonIgnoreIfDefault]
         [BsonElement("dby")]
@@ -43,7 +60,6 @@ namespace Simplify.Storage.MongoDb
         [BsonIgnoreIfDefault]
         [BsonElement("tgs")]
         public HashSet<string> Tags { get; set; } = null!;
-
 
         [BsonIgnoreIfDefault]
         [BsonElement("ver")]

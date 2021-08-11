@@ -56,7 +56,7 @@ namespace Simplify.Web
 
             services.AddSimplify(Configuration)
                 .AddCommands(SimplifyWebHelper.Assembly, SimplifyInfraHelper.Assembly)
-                .AddMongoDB()
+                .AddMongoDb()
                 .AddInfra();
 
             services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
