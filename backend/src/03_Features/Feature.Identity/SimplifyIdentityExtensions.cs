@@ -1,3 +1,7 @@
+using MongoDB.Bson.Serialization.Attributes;
+using Simplify.SeedWork.Domain;
+using Simplify.SeedWork.Events;
+
 namespace Simplify.Feature.Identity
 {
     public static class SimplifyIdentityExtensions
@@ -12,4 +16,6 @@ namespace Simplify.Feature.Identity
             public const string IdentityIssuer = "simplify_identity";
         }
     }
+
+    
 }

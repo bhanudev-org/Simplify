@@ -10,11 +10,6 @@ using Simplify.Storage.MongoDb.Builders;
 
 namespace Simplify.Storage.MongoDb
 {
-    public static class MongoDbExtensions
-    {
-
-    }
-
     public abstract class MongoDbCollectionBase<TMongoDbEntity> : IMongoDbRepository<TMongoDbEntity> where TMongoDbEntity : IAggregateRoot
     {
         protected static readonly SortDefinitionBuilder<TMongoDbEntity> Sort = Builders<TMongoDbEntity>.Sort;
